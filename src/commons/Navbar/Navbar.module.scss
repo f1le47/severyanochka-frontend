@@ -1,0 +1,221 @@
+@import '../../variables.scss';
+
+.closeDropDown {
+  height: 100vh;
+  width: 100vw;
+}
+
+.navbar {
+  padding: 30px 0;
+  box-shadow: $shadow-s;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: $container-width;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  &__icon {
+    margin-right: 11px;
+    width: 39.96px;
+    height: 32px;
+  }
+  &__text {
+    height: 100.38px;
+    height: 10.01px;
+  }
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  &Catalog {
+    margin-right: 16px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    background-color: $secondary;
+    border-radius: 4px;
+    cursor: pointer;
+    &Burger {
+      margin-right: 13px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 13px;
+      &__line {
+        width: 19px;
+        height: 3px;
+      }
+    }
+    &__text {
+      margin-right: 8px;
+      line-height: 24px;
+      font-family: $text;
+      font-weight: $text-regular;
+      color: $secondary-text;
+    }
+    &Drop {
+      padding: 32px;
+      top: 79px;
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      background-color: $surface;
+      box-shadow: $shadow-m;
+      &__link {
+        margin-bottom: 24px;
+        font-family: $text;
+        font-weight: $text-regular;
+        font-size: $text-s;
+        color: $surface-text;
+        line-height: 24px;
+        cursor: pointer;
+        &:hover {
+          color: $primary;
+        }
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+  &String {
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    border: 1px solid $secondary;
+    border-radius: 4px;
+    &__input {
+      width: 378px;
+      height: 24px;
+      border: none;
+      outline: none;
+      font-family: $text;
+      font-weight: $text-regular;
+      font-size: $text-s;
+      color: $surface-text;
+      caret-color: $surface-text;
+      &::placeholder {
+        color: $hard;
+        caret-color: $hard;
+      }
+      &:focus {
+        border: none;
+      }
+    }
+    &__img {
+      cursor: pointer;
+    }
+  }
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  &Btn {
+    margin-right: 24px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+    text-decoration: none;
+    &__icon {
+      margin-bottom: 8px;
+      height: 24px;
+      width: 24px;
+      fill: $surface-text;
+      &_active {
+        fill: $primary;
+      }
+    }
+    &__text {
+      font-family: $text;
+      font-weight: $text-regular;
+      font-size: $text-xs;
+      color: $surface-text;
+      &_active {
+        color: $primary;
+      }
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+    &:hover .linksBtn__icon {
+      fill: $primary;
+    }
+    &:hover .linksBtn__text {
+      color: $primary;
+    }
+  }
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  cursor: pointer;
+  &Line {
+    display: flex;
+    align-items: center;
+    &Info {
+      display: flex;
+      align-items: center;
+      &__img {
+        margin-right: 10px;
+        width: 40px;
+        height: 40px;
+      }
+      &__name {
+        margin-right: 23.5px;
+        width: 85px;
+        font-family: $text;
+        font-weight: $text-regular;
+        font-size: $text-s;
+        color: $surface-text;
+      }
+    }
+  }
+  &Drop {
+    padding: 8px;
+    top: 48px;
+    left: 10px;
+    position: absolute;
+    background-color: #fff;
+    &Btn {
+      height: 32px;
+      display: flex;
+      align-items: center;
+      &__text {
+        width: 143px;
+        font-family: $text;
+        font-weight: $text-regular;
+        font-size: $text-s;
+        color: $surface-text;
+      }
+    }
+  }
+}
+
+.login {
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  background-color: $primary;
+  border-radius: 4px;
+  cursor: pointer;
+  &__text {
+    width: 109px; 
+    text-align: center;
+    font-family: $text;
+    font-weight: $text-regular;
+    font-size: $text-s;
+    color: $primary-text
+  }
+}

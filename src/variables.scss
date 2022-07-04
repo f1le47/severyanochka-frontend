@@ -1,0 +1,78 @@
+// MAIN COLORS
+$background: #F4F4F2;
+$background-text: #291E0F;
+$surface: #FFFFFF;
+$surface-text: #414141;
+$primary: #FF6633;
+$primary-text: #FFFFFF;
+$secondary: #70C05B;
+$secondary-text: #FFFFFF;
+
+// GRAYSCALE
+$lightest: #F3F2F1;
+$light: #BFBFBF;
+$hard: #8F8F8F;
+$hardest: #606060;
+
+// PALETTE
+$success: #008C49;
+$info: #1CB9FC;
+$warning: #FCA21C;
+$error: #D80000;
+
+
+// CONTAINER PARAMS
+$container-width: 1208px;
+
+
+// FONTS
+$text: 'Rubik', sans-serif;
+$text-bold: 'Roboto', sans-serif;
+$text-header: 'Rubik', sans-serif;
+
+// TEXT SIZE
+$text-xs: 12px;
+$text-s: 16px;
+$text-m: 18px;
+$text-l: 24px;
+$text-xl: 36px;
+
+$text-bold-xs: 12px;
+$text-bold-s: 16px;
+$text-bold-m: 18px;
+$text-bold-l: 24px;
+$text-bold-xl: 36px;
+
+$text-header-xs: 18px;
+$text-header-s: 24px;
+$text-header-m: 36px;
+$text-header-l: 48px;
+$text-header-xl: 64px;
+
+// TEXT WEIGHT
+$text-regular: 400;
+$text-bold: 700;
+
+
+// SHADOWS
+
+// DEFAULTS SHADOWS
+$shadow-xs: 1px 2px 4px rgba(0, 0, 0, 0.1);
+$shadow-s: 2px 4px 8px rgba(0, 0, 0, 0.1);
+$shadow-m: 4px 8px 16px rgba(0, 0, 0, 0.1);
+$shadow-l: 8px 16px 32px rgba(0, 0, 0, 0.1);
+$shadow-xl: 16px 32px 64px rgba(0, 0, 0, 0.1);
+
+// PRIMARY SHADOWS
+$shadow-primary-xs: 1px 2px 4px rgba(255, 102, 51, 0.2);
+$shadow-primary-s: 2px 4px 8px rgba(255, 102, 51, 0.2);
+$shadow-primary-m: 4px 8px 16px rgba(255, 102, 51, 0.2);
+$shadow-primary-l: 8px 16px 32px rgba(255, 102, 51, 0.2);
+$shadow-primary-xl: 16px 32px 64px rgba(255, 102, 51, 0.2);
+
+// SECONDARY SHADOWS
+$shadow-secondary-xs: 1px 2px 4px rgba(112, 192, 91, 0.2);
+$shadow-secondary-s: 2px 4px 8px rgba(112, 192, 91, 0.2);
+$shadow-secondary-m: 4px 8px 16px rgba(112, 192, 91, 0.2);
+$shadow-secondary-l: 8px 16px 32px rgba(112, 192, 91, 0.2);
+$shadow-secondary-xl: 16px 32px 64px rgba(112, 192, 91, 0.2);
