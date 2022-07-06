@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 import logoIcon from '../../assets/img/logotype/logo-icon.svg';
 import logoText from '../../assets/img/logotype/logo-text.svg';
-import burgerLine from '../../assets/img/burger-line.svg';
+import {ReactComponent as BurgerLine} from '../../assets/img/burger-line.svg';
 import loupe from '../../assets/img/searchString/loupe.svg';
 import {ReactComponent as Favorite} from '../../assets/img/navbarButtons/favorite.svg';
 import {ReactComponent as Orders} from '../../assets/img/navbarButtons/orders.svg';
@@ -21,15 +21,17 @@ const Navbar = ({avatar, isAuth, name}: NavbarType) => {
   const [isDropDownProfileVisible, setIsDropDownProfileVisible] = useState(false);
 
   let avatarImage = ''
-
-  debugger
   if (!avatar) {
     avatarImage = defaultAvatar;
   } else {
     avatarImage = avatar;
   }
 
-  return <div className={s.closeDropDown} onClick={() => setisDropDownCategoryVisible(false)}>
+  return <>
+    <div className={s.closeDropDown} onClick={(e) => {
+    e.stopPropagation()
+    setisDropDownCategoryVisible(false)
+  }}>
     <div className={s.navbar}>
       <div className={s.container}>
         <NavLink to='/' className={s.logo}>
@@ -42,9 +44,9 @@ const Navbar = ({avatar, isAuth, name}: NavbarType) => {
             setisDropDownCategoryVisible(!isDropDownCategoryVisible)
           }}>
             <div className={s.searchCatalogBurger}>
-              <img src={burgerLine} alt="-" className={s.searchCatalogBurger__line} />
-              <img src={burgerLine} alt="-" className={s.searchCatalogBurger__line} />
-              <img src={burgerLine} alt="-" className={s.searchCatalogBurger__line} />
+              <BurgerLine className={s.searchCatalogBurger__line} />
+              <BurgerLine className={s.searchCatalogBurger__line} />
+              <BurgerLine className={s.searchCatalogBurger__line} />
             </div>
             <span className={s.searchCatalog__text}>Каталог</span>
           </div>
@@ -118,13 +120,66 @@ const Navbar = ({avatar, isAuth, name}: NavbarType) => {
         ) : (<></>) }
           </div>
         ) : 
-        (<div className={s.login}>
+        (<NavLink to='/login' className={s.login}>
           <span className={s.login__text}>Войти</span>
           <img src={login} alt="log" className={s.login__img} />
-        </div>) }
+        </NavLink>) }
       </div>
     </div>
   </div>
+  <div className={s.mobile}>
+  <div className={s.mobileNav} onClick={() => {
+    setisDropDownCategoryVisible(true)
+    console.log(isDropDownCategoryVisible)
+  }}>
+    <div className={s.mobileCatalogBurger}>
+      <BurgerLine className={s.mobileCatalogBurger__line} />
+      <BurgerLine className={s.mobileCatalogBurger__line} />
+      <BurgerLine className={s.mobileCatalogBurger__line} />
+    </div>
+    <span className={s.mobileNav__text}>Каталог</span>
+  </div>
+  <NavLink to="/favorite" className={s.mobileNav}>
+    <Favorite className={s.mobileNav__icon} />
+    <span className={s.mobileNav__text}>Избранное</span>
+  </NavLink>
+  <NavLink to="/orders" className={s.mobileNav}>
+    <Orders className={s.mobileNav__icon} />
+    <span className={s.mobileNav__text}>Заказы</span>
+  </NavLink>
+  <NavLink to="/cart" className={s.mobileNav}>
+    <Cart className={s.mobileNav__icon} />
+    <span className={s.mobileNav__text}>Корзина</span>
+  </NavLink>
+  { isAuth ? (
+    <div className={s.mobileProfile}>
+      <img src={defaultAvatar} alt="x" className={s.mobileProfile__img} />
+      <span className={s.mobileProfile__name}>{name}</span>
+    </div>
+  ) : (
+    <NavLink to="/login" className={s.mobileLogin}>
+      <img src={login} alt="x" className={s.mobileLogin__icon} />
+    </NavLink>
+  ) }
+</div>
+{ isDropDownCategoryVisible ? (
+    <div className={s.mobileCatalogDrop}>
+      <span className={s.searchCatalogDrop__link}>Хлебобулочные изделия</span>
+      <span className={s.searchCatalogDrop__link}>Молоко, сыр, яйцо</span>
+      <span className={s.searchCatalogDrop__link}>Фрукты и овощи</span>
+      <span className={s.searchCatalogDrop__link}>Замороженные продукты</span>
+      <span className={s.searchCatalogDrop__link}>Напитки</span>
+      <span className={s.searchCatalogDrop__link}>Кондитерские изделия</span>
+      <span className={s.searchCatalogDrop__link}>Чай, кофе</span>
+      <span className={s.searchCatalogDrop__link}>Бакалея</span>
+      <span className={s.searchCatalogDrop__link}>Здоровое питание</span>
+      <span className={s.searchCatalogDrop__link}>Зоотовары</span>
+      <span className={s.searchCatalogDrop__link}>Детское питание</span>
+      <span className={s.searchCatalogDrop__link}>Мясо, птица, колбаса</span>
+      <span className={s.searchCatalogDrop__link}>Непродовольственные товары</span>
+    </div>
+  ) : ('') }
+  </>
 }
 
 export default Navbar;

@@ -52,6 +52,7 @@
       &__line {
         width: 19px;
         height: 3px;
+        fill: $secondary-text;
       }
     }
     &__text {
@@ -210,6 +211,7 @@
   background-color: $primary;
   border-radius: 4px;
   cursor: pointer;
+  text-decoration: none;
   &__text {
     width: 109px; 
     text-align: center;
@@ -217,5 +219,169 @@
     font-weight: $text-regular;
     font-size: $text-s;
     color: $primary-text
+  }
+}
+
+.mobile {
+  display: none;
+  &Catalog {
+    &Drop {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 1218px) {
+  .container {
+    display: flex;
+    justify-content: space-between;
+    max-width: $container-width-desktop;
+  }
+
+  .logo {
+    &__text {
+      display: none;
+    }
+  }
+
+  .search {
+    &Catalog {
+      &Burger {
+        padding: 7px;
+        margin-right: 0;
+      }
+      &__text {
+        display: none;
+      }
+    }
+    &String {
+      &__input {
+        width: 278px;
+      }
+    }
+  }
+
+  .login {
+    &__text {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+
+  .navbar {
+    padding: 0;
+  }
+
+  .container {
+    padding: 8px 16px;
+    justify-content: space-between;
+    max-width: 100%;
+  }
+
+  .logo {
+    &__icon {
+      margin-right: 20px;
+    }
+  }
+
+  .search {
+    &Catalog {
+      display: none;
+      &Drop {
+        display: none;
+      }
+    }
+    &String {
+      &__input {
+        width: 50vw;
+      }
+    }
+  }
+  
+  .links {
+    display: none;
+  }
+
+  .profile {
+    display: none;
+  }
+
+  .login {
+    display: none;
+  }
+
+  .mobile {
+    padding: 8px 20px; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    z-index: 99;
+    width: 100%;
+    bottom: 0;
+    background-color: $surface;
+    &Catalog {
+      &Burger {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+        &__line {
+          fill: $surface-text;
+          &:nth-child(2) {
+            margin: 5px 0;
+          }
+        }
+      }
+      &Drop {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+    &Nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      &__icon {
+        fill: $surface-text;
+      }
+      &__text {
+        margin-top: 4px;
+        font-family: $text;
+        font-weight: $text-regular;
+        font-size: $m-text-xs;
+        color: $surface-text;
+      }
+    }
+    &Profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      &__img {
+        margin-bottom: 4px;
+        width: 24px;
+        height: 24px;
+      }
+      &__name {
+        font-family: $text;
+        font-weight: $text-regular;
+        font-size: $m-text-xs;
+        color: $surface-text;
+      }
+    }
+    &Login {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 40px;
+      width: 40px;
+      background-color: $primary;
+      border-radius: 4px;
+    }
   }
 }
