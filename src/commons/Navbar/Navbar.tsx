@@ -14,22 +14,23 @@ import { NavbarType } from '../../types/NavbarTypes/NavbarTypes';
 import defaultAvatar from '../../assets/img/profile/defaultAva.svg';
 import markdown from '../../assets/img/profile/markdown.svg';
 import markup from '../../assets/img/profile/markup.svg';
+import LoginWindow from './LoginWindow/LoginWindow';
 
 const Navbar = ({avatar, isAuth, name}: NavbarType) => {
  
   const [isDropDownCategoryVisible, setisDropDownCategoryVisible] = useState(false);
   const [isDropDownProfileVisible, setIsDropDownProfileVisible] = useState(false);
+  const [isLoginWindowVisible, setIsLoginWindowVisible] = useState(false);
 
   let avatarImage = ''
 
-  debugger
   if (!avatar) {
     avatarImage = defaultAvatar;
   } else {
     avatarImage = avatar;
   }
 
-  return <div className={s.closeDropDown} onClick={() => setisDropDownCategoryVisible(false)}>
+  return <>
     <div className={s.navbar}>
       <div className={s.container}>
         <NavLink to='/' className={s.logo}>
@@ -118,13 +119,16 @@ const Navbar = ({avatar, isAuth, name}: NavbarType) => {
         ) : (<></>) }
           </div>
         ) : 
-        (<div className={s.login}>
+        (<div className={s.login} onClick={() => setIsLoginWindowVisible(!isLoginWindowVisible)}>
           <span className={s.login__text}>Войти</span>
           <img src={login} alt="log" className={s.login__img} />
         </div>) }
       </div>
     </div>
-  </div>
+    <div className={s.closeDropDown} onClick={() => setisDropDownCategoryVisible(false)}>
+    </div>
+    <LoginWindow isLoginWindowVisible={isLoginWindowVisible} setIsLoginWindowVisible={setIsLoginWindowVisible}/>
+  </>
 }
 
 export default Navbar;
