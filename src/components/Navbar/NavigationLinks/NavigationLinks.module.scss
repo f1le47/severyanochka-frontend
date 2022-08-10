@@ -1,0 +1,41 @@
+@import '../../../variables.scss';
+
+.links {
+  display: flex;
+  align-items: center;
+  &Btn {
+    margin-right: 24px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+    text-decoration: none;
+    &__icon {
+      margin-bottom: 8px;
+      height: 24px;
+      width: 24px;
+      fill: $surface-text;
+      &_active {
+        fill: $primary;
+      }
+    }
+    &__text {
+      font-family: $text;
+      font-weight: $w-text-regular;
+      font-size: $text-xs;
+      color: $surface-text;
+      &_active {
+        color: $primary;
+      }
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+    &:hover .linksBtn__icon {
+      fill: $primary;
+    }
+    &:hover .linksBtn__text {
+      color: $primary;
+    }
+  }
+}

@@ -1,0 +1,86 @@
+@import '../../../variables.scss';
+
+.productNav {
+  display: flex;
+  align-items: center;
+  &Catalog {
+    margin-right: 16px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    background-color: $secondary;
+    border-radius: 4px;
+    cursor: pointer;
+    &Burger {
+      margin-right: 13px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 13px;
+      &__line {
+        width: 19px;
+        height: 3px;
+      }
+    }
+    &__text {
+      margin-right: 8px;
+      line-height: 24px;
+      font-family: $text;
+      font-weight: $w-text-regular;
+      color: $secondary-text;
+    }
+    &Drop {
+      padding: 32px;
+      top: 79px;
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      background-color: $surface;
+      box-shadow: $shadow-m;
+      z-index: 99;
+      &__link {
+        margin-bottom: 24px;
+        font-family: $text;
+        font-weight: $w-text-regular;
+        font-size: $text-s;
+        color: $surface-text;
+        line-height: 24px;
+        cursor: pointer;
+        &:hover {
+          color: $primary;
+        }
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+  &String {
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    border: 1px solid $secondary;
+    border-radius: 4px;
+    &__input {
+      width: 378px;
+      height: 24px;
+      border: none;
+      outline: none;
+      font-family: $text;
+      font-weight: $w-text-regular;
+      font-size: $text-s;
+      color: $surface-text;
+      caret-color: $surface-text;
+      &::placeholder {
+        color: $hard;
+        caret-color: $hard;
+      }
+      &:focus {
+        border: none;
+      }
+    }
+    &__img {
+      cursor: pointer;
+    }
+  }
+}

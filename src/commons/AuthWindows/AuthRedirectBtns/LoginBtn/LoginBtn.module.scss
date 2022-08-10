@@ -1,0 +1,20 @@
+@import 'variables.scss';
+
+.loginBtn {
+  margin-right: 16px;
+  padding: 4px 8px;
+  width: 105px;
+  font-family: $text;
+  font-weight: $w-text-regular;
+  font-size: $text-xs;
+  line-height: 18px;
+  color: $secondary;
+  background-color: transparent;
+  border: 1px solid $secondary;
+  border-radius: 4px;
+  cursor: pointer;
+  &:hover {
+    color: $secondary-text;
+    background-color: $secondary;
+  }
+}

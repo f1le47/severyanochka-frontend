@@ -1,0 +1,34 @@
+@import 'variables.scss';
+
+.request {
+  margin-bottom: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 320px;
+  &__text {
+    margin-right: 5px;
+    font-family: $text;
+    font-weight: $w-text-regular;
+    font-size: $text-xs;
+    line-height: 18px;
+    color: $hard;
+    &_wide {
+      font-weight: $w-text-bold;
+      font-size: $text-bold-xs;
+      color: $hardest;
+    }
+  }
+  &__btn {
+    font-family: $text;
+    font-weight: $w-text-regular;
+    font-size: $text-xs;
+    line-height: 18px;
+    color: $primary;
+    text-decoration: underline;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+  }
+}

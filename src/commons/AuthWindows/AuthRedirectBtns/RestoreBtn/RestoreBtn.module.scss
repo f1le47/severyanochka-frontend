@@ -1,0 +1,14 @@
+@import 'variables.scss';
+
+.restoreBtn {
+  margin-right: 16px;
+  padding: 4px 8px;
+  font-family: $text;
+  font-weight: $w-text-regular;
+  font-size: $text-xs;
+  line-height: 18px;
+  color: $hardest;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}

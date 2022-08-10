@@ -1,0 +1,38 @@
+@import 'variables.scss';
+
+.radio {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  &__label {
+    font-family: $text;
+    font-weight: $w-text-regular;
+    font-size: $text-s;
+    line-height: 24px;
+    color: $hard;
+  }
+  &Btns {
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    background: $lightest;
+    border-radius: 4px;
+    &__btn {
+      text-align: center;
+      padding: 4px 8px;
+      width: 110px;
+      font-family: $text;
+      font-weight: $w-text-regular;
+      font-size: $text-xs;
+      line-height: 18px;
+      color: $surface-text;
+      background-color: transparent;
+      border-radius: 4px;
+      cursor: pointer;
+      &_active {
+        color: $secondary-text;
+        background: $secondary;
+      }
+    }
+  }
+}

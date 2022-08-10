@@ -1,0 +1,23 @@
+@import 'variables.scss';
+
+.returnBtn {
+  margin-right: 16px;
+  padding: 4px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  &__icon {
+    margin-right: 8px;
+  }
+  &__btn {
+    font-family: $text;
+    font-weight: $w-text-regular;
+    font-size: $text-xs;
+    line-height: 18px;
+    color: $hardest;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+}

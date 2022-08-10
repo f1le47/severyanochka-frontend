@@ -1,0 +1,9 @@
+@import 'variables.scss';
+
+.background {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba($primary-muted, 0.8);
+}

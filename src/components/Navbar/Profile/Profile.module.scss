@@ -1,0 +1,46 @@
+@import '../../../variables.scss';
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  cursor: pointer;
+  &Line {
+    display: flex;
+    align-items: center;
+    &Info {
+      display: flex;
+      align-items: center;
+      &__img {
+        margin-right: 10px;
+        width: 40px;
+        height: 40px;
+      }
+      &__name {
+        margin-right: 23.5px;
+        width: 85px;
+        font-family: $text;
+        font-weight: $w-text-regular;
+        font-size: $text-s;
+        color: $surface-text;
+      }
+    }
+  }
+}
+
+.login {
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  background-color: $primary;
+  border-radius: 4px;
+  cursor: pointer;
+  &__text {
+    width: 109px; 
+    text-align: center;
+    font-family: $text;
+    font-weight: $w-text-regular;
+    font-size: $text-s;
+    color: $primary-text
+  }
+}

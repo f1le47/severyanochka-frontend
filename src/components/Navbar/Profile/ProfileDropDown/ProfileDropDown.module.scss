@@ -1,0 +1,22 @@
+@import '../../../../variables.scss';
+
+.profileDrop {
+  padding: 8px;
+  top: 48px;
+  left: 10px;
+  position: absolute;
+  z-index: 1000;
+  background-color: #fff;
+  &Btn {
+    height: 32px;
+    display: flex;
+    align-items: center;
+    &__text {
+      width: 143px;
+      font-family: $text;
+      font-weight: $w-text-regular;
+      font-size: $text-s;
+      color: $surface-text;
+    }
+  }
+}
