@@ -1,0 +1,22 @@
+@import 'variables.scss';
+
+.warning {
+  margin-bottom: 10px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  background-color: $error;
+  border-radius: 4px;
+  box-shadow: $shadow-l;
+  .icon {
+    margin-right: 16px;
+    fill: $on-error;
+  }
+  .text {
+    font-family: $text;
+    font-weight: $w-text-regular;
+    font-size: $text-xs;
+    line-height: 24px;
+    color: $on-error;
+  }
+}

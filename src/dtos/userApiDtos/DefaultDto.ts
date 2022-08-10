@@ -1,4 +1,5 @@
-import { IDefaultDto } from "dtos/userApiDtos/IDtos/IDefaultDto";
+import { IDefaultDto } from "./IDefaultDto";
+
 
 export class DefaultDto {
   message;

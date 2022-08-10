@@ -1,0 +1,23 @@
+@import 'variables.scss';
+
+.success {
+  margin-bottom: 20px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  background-color: $success;
+  border-radius: 4px;
+  box-shadow: $shadow-l;
+  .icon {
+    margin-right: 16px;
+    fill: $on-success;
+  }
+  .text {
+    width: 200px;
+    font-family: $text;
+    font-weight: $w-text-regular;
+    font-size: $text-xs;
+    line-height: 24px;
+    color: $on-success;
+  }
+}

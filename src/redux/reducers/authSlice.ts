@@ -5,8 +5,8 @@ interface AuthState {
   isAuth: boolean
   user: UserType
   isLoading: boolean
-  error: string
-  successMessage: string
+  errors: Array<string>
+  successes: Array<string>
 }
 
 const initialState: AuthState = {
@@ -23,8 +23,8 @@ const initialState: AuthState = {
     isActivated: false
   },
   isLoading: false,
-  error: '',
-  successMessage: ''
+  errors: [],
+  successes: []
 }
 
 export const userSlice = createSlice({
@@ -36,11 +36,11 @@ export const userSlice = createSlice({
     },
     setSuccess(state, action: PayloadAction<string>) {
       state.isLoading = false
-      state.successMessage = action.payload
+      state.successes = [action.payload, ...state.successes]
     },
     setError(state, action: PayloadAction<string>) {
       state.isLoading = false
-      state.error = action.payload
+      state.errors = [action.payload, ...state.errors]
     },
     setAuth(state, action: PayloadAction<UserType>) {
       state.isLoading = false
@@ -62,6 +62,20 @@ export const userSlice = createSlice({
         gender: 'male',
         role: '',
         isActivated: false
+      }
+    },
+    clearLatestError(state) {
+      if (state.errors.length > 0) {
+        const returnArr = [...state.errors]
+        returnArr.pop()
+        state.errors = returnArr
+      }
+    },
+    clearLatestSuccess(state) {
+      if (state.successes.length > 0) {
+        const returnArr = [...state.successes]
+        returnArr.pop()
+        state.successes = returnArr
       }
     }
   }

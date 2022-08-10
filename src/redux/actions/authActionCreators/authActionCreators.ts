@@ -9,6 +9,7 @@ export const authActionCreators = {
     try {
       dispatch(userSlice.actions.setLoading())
       const response = await login({password, phoneNumber})
+      console.log(response)
       dispatch(userSlice.actions.setSuccess(response.message))
       dispatch(authActionCreators.checkAuth())
       return response.status
@@ -92,5 +93,11 @@ export const authActionCreators = {
     } catch (e) {
       dispatch(userSlice.actions.setError(e.response.data.message))
     }
+  },
+  clearLatestError: () => async (dispatch: AppDispatch) => {
+    dispatch(userSlice.actions.clearLatestError())
+  },
+  clearLatestSuccess: () => async (dispatch: AppDispatch) => {
+    dispatch(userSlice.actions.clearLatestSuccess())
   }
 }
