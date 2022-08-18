@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { UserType } from 'dtos/userApiDtos/ICheckAuthDto';
 
-interface AuthState {
+interface IUserState {
   isAuth: boolean
   user: UserType
   isLoading: boolean
@@ -9,7 +9,7 @@ interface AuthState {
   successes: Array<string>
 }
 
-const initialState: AuthState = {
+const initialState: IUserState = {
   isAuth: false,
   user: {
     phoneNumber: '',

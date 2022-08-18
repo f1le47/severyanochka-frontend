@@ -1,0 +1,129 @@
+@import 'variables.scss';
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: $shadow-xs;
+  width: 272px;
+  &:hover {
+    box-shadow: $shadow-primary-m;
+  }
+  &:hover .block {
+    .button {
+      background-color: $primary;
+      border-color: $primary;
+      color: $primary-text;
+    }
+  }
+  .image {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 272px;
+    height: 160px;
+    .favorite {
+      padding: 4px;
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      fill: rgba($surface-text, 0.5);
+      background-color: rgba($lightest, 0.5);
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .productImage {
+      height: 160px;
+    }
+    .discount {
+      padding: 4px 8px;
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      font-family: $text;
+      font-weight: $w-text-regular;
+      font-size: $text-s;
+      line-height: 24px;
+      color: $primary-text;
+      background-color: $primary;
+      border-radius: 4px;
+    }
+  }
+  .block{
+    padding: 8px;
+    .count {
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .withCard {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        &__price {
+          font-family: $text-bold;
+          font-weight: $w-text-bold;
+          font-size: $text-bold-m;
+          line-height: 27px;
+          color: $surface-text;
+        }
+      }
+      .default {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        &__price {
+          font-family: $text;
+          font-weight: $w-text-regular;
+          font-size: $text-s;
+          line-height: 24px;
+          color: $hardest;
+        }
+      }
+      .countInfo {
+        font-family: $text;
+        font-weight: $w-text-regular;
+        font-size: $text-xs;
+        line-height: 18px;
+        color: $light;
+      }
+    }
+    .productName {
+      margin: 0;
+      margin-bottom: 8px;
+      font-family: $text;
+      font-weight: $w-text-regular;
+      font-size: $text-s;
+      line-height: 24px;
+      color: $surface-text;
+    }
+    .rating {
+      margin-bottom: 8px; 
+      display: flex;
+      align-items: center;
+      .rate {
+        margin-right: 4px;
+        fill: $light;
+        cursor: pointer;
+        &_active {
+          fill: $primary;
+        }
+      }
+    }
+    .button {
+      padding: 8px 0;
+      font-family: $text;
+      font-weight: $w-text-regular;
+      font-size: $text-s;
+      line-height: 24px;
+      color: $secondary;
+      background-color: transparent;
+      border: 1px solid $secondary;
+      border-radius: 4px;
+      width: 100%;
+      cursor: pointer;
+      outline: none;
+    }
+  }
+}

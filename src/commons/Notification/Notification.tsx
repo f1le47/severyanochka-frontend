@@ -6,9 +6,9 @@ import Success from './Success/Success'
 import { useEffect } from 'react'
 import { useActions } from 'hooks/redux'
 
-const Notification = ({errors, successes}: INotification) => {
+const Notification = ({errors, successes, productErrors}: INotification) => {
 
-  const {clearLatestError, clearLatestSuccess} = useActions()
+  const {clearLatestError, clearLatestSuccess, clearLatestProductError} = useActions()
 
   useEffect(() => {
     setTimeout(() => {
@@ -26,6 +26,13 @@ const Notification = ({errors, successes}: INotification) => {
     }, 1500)
   }, [successes])
 
+  useEffect(() => {
+    setTimeout(() => {
+      if (productErrors.length > 0) {
+        clearLatestProductError()
+      }
+    }, 1500)
+  }, [productErrors])
 
   return (
     <Modal id="notification">

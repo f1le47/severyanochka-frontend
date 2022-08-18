@@ -1,0 +1,66 @@
+@import 'variables.scss';
+
+.footer {
+  padding: 24px 0;
+  background: url('../../assets/img/footer-bg.svg');
+  background-color: $footer-color;
+  .topLine {
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .links {
+      display: flex;
+      align-items: center;
+      .link {
+        margin-right: 40px;
+        font-family: $text;
+        font-weight: $w-text-regular;
+        font-size: $text-xs;
+        line-height: 18px;
+        color: $surface-text;
+        text-decoration: none;
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+    .socialLinks {
+      display: flex;
+      align-items: center;
+      .socialLink {
+        margin-right: 16px;
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+    .phone {
+      display: flex;
+      align-items: center;
+      &__icon {
+        margin-right: 8px;
+      }
+      &__text {
+        font-family: $text;
+        font-weight: $w-text-regular;
+        font-size: $text-s;
+        line-height: 24px;
+        color: $surface-text;
+      }
+    }
+  }
+  .bottomLine {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    .designer {
+      margin-right: 8px;
+      font-family: $text;
+      font-weight: $w-text-regular;
+      font-size: $text-xs;
+      line-height: 18px;
+      color: $surface-text;
+    }
+  }
+}

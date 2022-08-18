@@ -28,8 +28,6 @@ const Navbar = () => {
         />
       </div>
     </div>
-    <div className={s.closeDropDown} onClick={() => setisDropDownCategoryVisible(false)}>
-    </div>
   </>
 }
 

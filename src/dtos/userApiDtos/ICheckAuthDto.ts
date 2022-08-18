@@ -1,4 +1,4 @@
-import { IDefaultDto } from "./IDefaultDto";
+import { IDefaultDto } from "../IDefaultDto";
 
 export interface ICheckAuthDto extends IDefaultDto {
   user: UserType

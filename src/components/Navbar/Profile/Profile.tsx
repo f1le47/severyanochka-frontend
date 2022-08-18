@@ -15,8 +15,8 @@ const Profile = ({isDropDownProfileVisible, setIsDropDownProfileVisible}: IProfi
 
   const [isAuthWindowVisible, setIsAuthWindowVisible] = useState(false)
 
-  const isAuth = useAppSelector(state => state.auth.isAuth)
-  const {name} = useAppSelector(state => state.auth.user)
+  const isAuth = useAppSelector(state => state.user.isAuth)
+  const {name} = useAppSelector(state => state.user.user)
 
   // FIX IT!!!
   const avatar = false

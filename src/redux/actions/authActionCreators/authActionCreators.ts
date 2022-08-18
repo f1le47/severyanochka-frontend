@@ -1,7 +1,7 @@
 import { INewPassword } from './../../../types/http/IUserApi';
 import { checkAuth, confirmCode, login, logout, registration, restorePassword, resendCode, newPassword } from 'http/userApi';
 import { AppDispatch } from '../../store';
-import { userSlice } from '../../reducers/authSlice';
+import { userSlice } from '../../reducers/userSlice';
 import { IConfirmCode, ILogin, IRegistration, IResendCode, IRestorePassword } from 'types/http/IUserApi';
 
 export const authActionCreators = {

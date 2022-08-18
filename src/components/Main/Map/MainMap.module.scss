@@ -1,0 +1,31 @@
+@import 'variables.scss';
+
+.map {
+  .tabs {
+    margin-bottom: 24px;
+    display: flex;
+    align-items: start;
+    .tab {
+      margin-right: 24px;
+      padding: 4px 8px;
+      font-family: $text;
+      font-weight: $w-text-regular;
+      font-size: $text-xs;
+      line-height: 18px;
+      color: $hardest;
+      background-color: $lightest;
+      border: none;
+      border-radius: 4px;
+      outline: none;
+      cursor: pointer;
+      &_active {
+        color: $secondary-text;
+        background-color: $secondary;
+      }
+      &:hover {
+        color: $secondary-text;
+        background-color: $secondary;
+      }
+    }
+  }
+}

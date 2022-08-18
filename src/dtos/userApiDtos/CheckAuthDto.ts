@@ -1,5 +1,5 @@
 import { ICheckAuthDto } from "dtos/userApiDtos/ICheckAuthDto";
-import { DefaultDto } from "./DefaultDto";
+import { DefaultDto } from "../DefaultDto";
 
 export class CheckAuthDto extends DefaultDto {
   user;

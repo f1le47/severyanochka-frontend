@@ -1,14 +1,15 @@
 import axios from 'axios'
 import { refresh } from './userApi'
 
+
 const $instance = axios.create({
   withCredentials: true,
-  baseURL: 'http://localhost:5000/api/'
+  baseURL: process.env.REACT_APP_API_URL
 })
 
 const $authInstance = axios.create({
   withCredentials: true,
-  baseURL: 'http://localhost:5000/api/',
+  baseURL: process.env.REACT_APP_API_URL,
 })
 
 const authInterceptor = (config: any) => {

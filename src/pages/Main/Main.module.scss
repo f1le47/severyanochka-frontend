@@ -1,0 +1,11 @@
+@import '../../variables.scss';
+
+.main {
+  background-color: $background-main;
+  .banner {
+    width: 100%;
+    height: 200px;
+    background: url('../../assets/img/main-banner-pattern.svg');
+    background-color: #fff;
+  }
+}

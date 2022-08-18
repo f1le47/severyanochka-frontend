@@ -1,0 +1,41 @@
+@import 'variables.scss';
+
+.category {
+  margin-bottom: 120px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  .header {
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .title {
+      margin: 0;
+      font-family: $text-header;
+      font-weight: $w-text-bold;
+      font-size: $text-header-m;
+      line-height: 54px;
+      color: $surface-text;
+    }
+    .navlink {
+      display: flex;
+      align-items: center;
+      .link {
+        margin-right: 8px;
+        font-family: $text;
+        font-weight: $w-text-regular;
+        font-size: $text-s;
+        line-height: 24px;
+        color: $hardest;
+        width: 120px;
+        text-decoration: none;
+      }
+    }
+  }
+  .cards {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
