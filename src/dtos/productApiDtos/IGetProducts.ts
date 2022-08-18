@@ -8,11 +8,12 @@ export interface ProductType {
   id: number;
   name: string;
   price: string;
-  price_with_card: string;
   weight: string;
+  isDiscount: boolean;
   brand: string;
   category: string;
   rating: number;
   img: string;
-  discount?: number
+  discount?: string;
+  priceWithCard?: string;
 }

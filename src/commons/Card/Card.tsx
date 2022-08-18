@@ -5,7 +5,7 @@ import { ICard } from './ICard'
 
 const Card = ({product}: ICard) => {
 
-  const {name, price, price_with_card, rating, img, discount} = product
+  const {name, price, rating, img, discount, priceWithCard, isDiscount} = product
   const imgSrc = `${process.env.REACT_APP_STATIC_URL}/${img}`
 
   const rest = 5 - rating
@@ -26,13 +26,15 @@ const Card = ({product}: ICard) => {
       </div>
       <div className={s.block}>
         <div className={s.count}>
-          <div className={s.withCard}>
-            <span className={s.withCard__price}>{`${price_with_card} ₽`}</span>
-            <span className={s.countInfo}>С картой</span>
-          </div>
+          {discount && (
+            <div className={s.withCard}>
+              <span className={s.withCard__price}>{`${priceWithCard} ₽`}</span>
+              <span className={s.countInfo}>С картой</span>
+            </div>
+          )}
           <div className={s.default}>
-            <span className={s.default__price}>{`${price} ₽`}</span>
-            <span className={s.countInfo}>Обычная</span>
+            <span className={discount ? s.default__price : s.withCard__price}>{`${price} ₽`}</span>
+            {discount && <span className={s.countInfo}>Обычная</span>}
           </div>
         </div>
         <p className={s.productName}>{name}</p>
