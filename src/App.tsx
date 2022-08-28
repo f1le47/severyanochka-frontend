@@ -6,13 +6,14 @@ import Notification from "commons/Notification/Notification";
 import Main from "pages/Main/Main";
 import './App.scss'
 import Footer from "components/Footer/Footer";
+import Favorite from "pages/Favorite/Favorite";
 
 function App() {
 
-  const {checkAuth} = useActions()
+  const {checkAuth, getFavoriteProductIds} = useActions()
   const {isAuth, errors, successes} = useAppSelector(state => state.user)
   const productErrors = useAppSelector(state => state.product.errors)
-
+  const favoriteErrors = useAppSelector(state => state.favorite.errors)
 
   useEffect(() => {
     if (!isAuth) {
@@ -20,19 +21,27 @@ function App() {
     }
   }, [isAuth])
 
+  if (isAuth) {
+    getFavoriteProductIds()
+  }
+
   return (
     <div className="App">
-      {(errors.length > 0 || successes.length > 0 || productErrors.length > 0) && (
+      {(errors.length > 0 || successes.length > 0 || productErrors.length > 0 || favoriteErrors.length > 0) && (
         <Notification 
           errors={errors}
           successes={successes}
           productErrors={productErrors}
+          favoriteErrors={favoriteErrors}
         />
       )}
       <Navbar />
-        <Routes>
-          <Route path="/" element={ <Main /> } />
-        </Routes>
+        <div className="container-for-bgc">
+          <Routes>
+            <Route path="/" element={ <Main /> } />
+            <Route path="/favorite" element={<Favorite />} />
+          </Routes>
+        </div>
       <Footer />
     </div>
   );

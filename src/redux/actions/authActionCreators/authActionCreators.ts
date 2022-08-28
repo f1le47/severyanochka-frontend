@@ -9,7 +9,6 @@ export const authActionCreators = {
     try {
       dispatch(userSlice.actions.setLoading())
       const response = await login({password, phoneNumber})
-      console.log(response)
       dispatch(userSlice.actions.setSuccess(response.message))
       dispatch(authActionCreators.checkAuth())
       return response.status

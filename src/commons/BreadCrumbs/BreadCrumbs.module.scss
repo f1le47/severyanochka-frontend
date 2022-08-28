@@ -1,0 +1,26 @@
+@import 'variables.scss';
+
+.breadCrumbs {
+  padding: 24px 0;
+  display: flex;
+  align-items: center;
+  .markRight {
+    fill: $surface-text;
+    margin: 0 16px;
+  }
+  .link {
+    font-family: $text;
+    font-weight: $w-text-regular;
+    font-size: $text-xs;
+    line-height: 18px;
+    color: $surface-text;
+    text-decoration: none;
+  }
+  .text {
+    font-family: $text;
+    font-weight: $w-text-regular;
+    font-size: $text-xs;
+    line-height: 18px;
+    color: $hard;
+  }
+}

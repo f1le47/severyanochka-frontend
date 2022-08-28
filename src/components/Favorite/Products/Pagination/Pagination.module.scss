@@ -1,0 +1,44 @@
+@import 'variables.scss';
+
+.pages {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .markBtn {
+    padding: 8px;
+    cursor: pointer;
+    fill: $surface-text;
+    &_disabled {
+      cursor: default;
+      fill: $hard;
+    }
+  }
+  .prev {
+    margin-right: 16px;
+  }
+  .doublePrev {
+    margin-right: 16px;
+  }
+  .doubleNext {
+    margin-left: 16px;
+  }
+  .page {
+    margin-right: 16px;
+    padding: 8px;
+    font-family: $text;
+    font-weight: $w-text-regular;
+    font-size: $text-s;
+    line-height: 24px;
+    color: $hardest;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    &:last-child {
+      margin-right: 0;
+    }
+    &_active {
+      color: $primary;
+    }
+  }
+}

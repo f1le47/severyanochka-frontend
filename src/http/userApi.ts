@@ -58,7 +58,7 @@ export const resendCode = async ({phoneNumber}: IResendCode) => {
 export const refresh = async () => {
   const response = await $authInstance.get('/user/refresh')
 
-  localStorage.setItem('accessToken', response.data.token)
+  localStorage.setItem('accessToken', response.data.accessToken)
   
   const responseDto = new DefaultDto({message: response.data.message, status: response.status})
   return {...responseDto}

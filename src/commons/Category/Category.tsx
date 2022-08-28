@@ -2,7 +2,8 @@ import Card from 'commons/Card/Card';
 import { NavLink } from 'react-router-dom';
 import s from './Category.module.scss';
 import { ICategory } from './ICategory';
-import markRight from 'assets/img/mark-right.svg'
+import {ReactComponent as MarkRight} from 'assets/img/mark-right.svg'
+import {v4} from 'uuid'
 
 const Category = ({categoryName, categoryButton, categoryLink, products}: ICategory) => {
 
@@ -12,13 +13,13 @@ const Category = ({categoryName, categoryButton, categoryLink, products}: ICateg
         <h1 className={s.title}>{categoryName}</h1>
         <div className={s.navlink}>
           <NavLink className={s.link} to={categoryLink}>{categoryButton}</NavLink>
-          <img src={markRight} className={s.markRight} alt=">" />
+          <MarkRight className={s.markRight} />
         </div>
       </div>
       <div className={s.cards}>
         {products.map(product => {
           return (
-            <Card key={product.id} product={product} />
+            <Card key={v4()} product={product} />
           )
         })}
       </div>

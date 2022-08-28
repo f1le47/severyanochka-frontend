@@ -1,0 +1,53 @@
+@import 'variables.scss';
+
+.products {
+  .filters {
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    .filter {
+      margin-right: 20px;
+      padding: 4px 8px;
+      display: flex;
+      align-items: center;
+      background-color: $secondary;
+      border-radius: 4px;
+      &__clear {
+        background-color: $lightest;
+        cursor: pointer;
+        & .filter__text {
+          color: $hardest;
+        }
+      }
+      &__text {
+        margin-right: 8px;
+        padding: 0 10px;
+        font-family: $text;
+        font-weight: $w-text-regular;
+        font-size: $text-xs;
+        line-height: 18px;
+        color: $secondary-text;
+      }
+      &__btn {
+        cursor: pointer;
+      }
+    }
+  }
+  .cards {
+    margin-bottom: 40px;
+    width: 896px;
+    display: flex;
+    align-items: start;
+    flex-wrap: wrap;
+    .card {
+      margin-right: 40px;
+      margin-bottom: 40px;
+      &:nth-last-child(-n+3) {
+        margin-bottom: 0;
+      }
+      &:nth-child(3n) {
+        margin-right: 0;
+      }
+    }
+  }
+}

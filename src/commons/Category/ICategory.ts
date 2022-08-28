@@ -1,4 +1,4 @@
-import { ProductType } from "dtos/productApiDtos/IGetProducts";
+import { ProductType } from "dtos/productApiDtos/getProductsDto/IGetProducts";
 
 export type ICategory = {
   categoryName: string;

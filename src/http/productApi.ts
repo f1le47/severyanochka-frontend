@@ -1,6 +1,6 @@
 import { $instance } from "./index"
 import { IGetProducts } from "types/http/IProductApi";
-import { GetProductsDto } from "dtos/productApiDtos/getProductsDto";
+import { GetProductsDto } from "dtos/productApiDtos/getProductsDto/getProductsDto";
 
 class ProductApi {
   async getProducts({page, amount}: IGetProducts) {

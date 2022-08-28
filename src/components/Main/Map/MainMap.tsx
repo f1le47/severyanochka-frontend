@@ -1,5 +1,5 @@
+import { Map, Placemark, YMaps } from '@pbe/react-yandex-maps'
 import { useState } from 'react'
-import { Map, Placemark, YMaps } from 'react-yandex-maps'
 import s from './MainMap.module.scss'
 
 const MainMap = () => {
@@ -14,7 +14,7 @@ const MainMap = () => {
         <button className={activeMap === 3 ? `${s.tab} ${s.tab_active}` : s.tab} onClick={() => setActiveMap(3)}>с. Краснобор</button>
         <button className={activeMap === 4 ? `${s.tab} ${s.tab_active}` : s.tab} onClick={() => setActiveMap(4)}>д. Диюр</button>
       </div>
-      <YMaps className={s.ymaps}>
+      <YMaps>
         {activeMap === 1 && 
           <Map 
             className={s.ymap}

@@ -2,7 +2,7 @@ import s from './Main.module.scss';
 import mainBanner from 'assets/img/main-banner.svg'
 import Container from 'commons/Container/Container';
 import Category from 'commons/Category/Category';
-import Content from 'commons/Content/Content';
+import MainContent from 'commons/MainContent/MainContent';
 import { useActions, useAppSelector } from 'hooks/redux';
 import { useEffect } from 'react';
 import Block from 'commons/Block/Block';
@@ -29,7 +29,7 @@ const Main = () => {
   return <div className={s.main}>
     <img src={mainBanner} alt="banner" className={s.banner} />
     <Container>
-      <Content>
+      <MainContent>
         <Category
           products={discountProducts}
           categoryName="Акции"
@@ -51,7 +51,7 @@ const Main = () => {
         <Block blockTitle="Наши магазины">
           <MainMap />
         </Block>
-      </Content>
+      </MainContent>
     </Container>
   </div>
 }

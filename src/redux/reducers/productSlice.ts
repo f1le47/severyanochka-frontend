@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ProductType } from "dtos/productApiDtos/IGetProducts";
+import { ProductType } from "dtos/productApiDtos/getProductsDto/IGetProducts";
 
 interface IProductSlice {
   isLoading: boolean

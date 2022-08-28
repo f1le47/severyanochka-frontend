@@ -2,10 +2,13 @@ import s from './Card.module.scss'
 import {ReactComponent as Favorite} from 'assets/img/card/favorite.svg'
 import {ReactComponent as Rate} from 'assets/img/card/rate.svg'
 import { ICard } from './ICard'
+import formattingProductName from 'utils/formattingProductName'
+import { useActions, useAppSelector } from 'hooks/redux'
+import { useState } from 'react'
 
 const Card = ({product}: ICard) => {
 
-  const {name, price, rating, img, discount, priceWithCard, isDiscount} = product
+  const {name, price, rating, img, discount, id} = product
   const imgSrc = `${process.env.REACT_APP_STATIC_URL}/${img}`
 
   const rest = 5 - rating
@@ -17,18 +20,44 @@ const Card = ({product}: ICard) => {
     rateArr.push(0)
   }
 
+  const formattedName = formattingProductName(name)
+
+  const {addFavoriteProduct, removeFavoriteProduct} = useActions()
+  const {favoriteProductIds} = useAppSelector(state => state.favorite)
+
+  const [isFavorited, setIsFavorited] = useState(false)
+
+  favoriteProductIds.forEach(favoriteProductId => {
+    if (!isFavorited) {
+      if (favoriteProductId.productId === id) {
+        setIsFavorited(true)
+      }
+    }
+  })
+
+  const handleFavorite = () => {
+    if (isFavorited) {
+      removeFavoriteProduct({productId: id})
+    } else {
+      addFavoriteProduct({productId: id})
+    }
+  }
+
   return (
     <div className={s.card}>
       <div className={s.image}>
-        <Favorite className={s.favorite} />
+        <Favorite 
+          className={isFavorited ? `${s.favorite} ${s.favorite_active}` : s.favorite}
+          onClick={handleFavorite}
+        />
         <img src={imgSrc} alt="#" className={s.productImage} />
-        {discount && <span className={s.discount}>{`-${discount}%`}</span>}
+        {discount && <span className={s.discount}>{`-${discount.discount}%`}</span>}
       </div>
       <div className={s.block}>
         <div className={s.count}>
           {discount && (
             <div className={s.withCard}>
-              <span className={s.withCard__price}>{`${priceWithCard} ₽`}</span>
+              <span className={s.withCard__price}>{`${discount.priceWithCard} ₽`}</span>
               <span className={s.countInfo}>С картой</span>
             </div>
           )}
@@ -37,7 +66,7 @@ const Card = ({product}: ICard) => {
             {discount && <span className={s.countInfo}>Обычная</span>}
           </div>
         </div>
-        <p className={s.productName}>{name}</p>
+        <p className={s.productName}>{formattedName}</p>
         <div className={s.rating}>
           {rateArr.map(isActive => {
             return (
@@ -45,7 +74,9 @@ const Card = ({product}: ICard) => {
             )
           })}
         </div>
-        <button className={s.button}>В корзину</button>
+        <div className={s.btn}>
+          <button className={s.button}>В корзину</button>
+        </div>
       </div>
     </div>
   )
