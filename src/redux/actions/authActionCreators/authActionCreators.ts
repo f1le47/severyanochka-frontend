@@ -1,5 +1,5 @@
 import { INewPassword } from './../../../types/http/IUserApi';
-import { checkAuth, confirmCode, login, logout, registration, restorePassword, resendCode, newPassword } from 'http/userApi';
+import { checkAuth, confirmCode, login, logout, registration, restorePassword, resendCode, newPassword, savingsCard } from 'http/userApi';
 import { AppDispatch } from '../../store';
 import { userSlice } from '../../reducers/userSlice';
 import { IConfirmCode, ILogin, IRegistration, IResendCode, IRestorePassword } from 'types/http/IUserApi';
@@ -92,6 +92,13 @@ export const authActionCreators = {
     } catch (e) {
       dispatch(userSlice.actions.setError(e.response.data.message))
     }
+  },
+  savingsCard: () => async (dispatch: AppDispatch) => {
+    try {
+      dispatch(userSlice.actions.setLoading())
+      const response = await savingsCard()
+      dispatch(userSlice.actions.setSavingsCard(response.savingsCard))
+    } catch(e) {}
   },
   clearLatestError: () => async (dispatch: AppDispatch) => {
     dispatch(userSlice.actions.clearLatestError())

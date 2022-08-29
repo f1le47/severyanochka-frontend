@@ -1,0 +1,144 @@
+@import 'variables.scss';
+
+.card {
+  margin-right: 60px;
+  padding: 10px;
+  width: 876px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $surface;
+  border-radius: 4px;
+  box-shadow: $shadow-xs;
+  &:hover {
+    box-shadow: $shadow-primary-m;
+  }
+  .img {
+    display: flex;
+    justify-content: center;
+    height: 60px;
+    width: 80px;
+    &__product {
+      height: 60px;
+    }
+  }
+  .info {
+    width: 536px;
+    flex-direction: column;
+    .name {
+      font-family: $text;
+      font-weight: $w-text-regular;
+      font-size: $text-s;
+      line-height: 24px;
+      color: $surface-text;
+    }
+    .price {
+      display: flex;
+      align-items: center;
+      &WithCard {
+        margin-right: 8px;
+        display: flex;
+        flex-direction: column;
+        .price__bold {
+          font-family: $text-bold;
+          font-weight: $w-text-bold;
+          font-size: $text-bold-xs;
+          line-height: 18px;
+          color: $surface-text;
+        }
+      }
+      &Default {
+        margin-right: 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        .price__default {
+          font-family: $text;
+          font-weight: $w-text-regular;
+          font-size: $text-xs;
+          color: $hardest;
+          line-height: 18px;
+          &_bold {
+            font-family: $text-bold;
+            font-weight: $w-text-bold;
+          }
+        }
+      }
+      .price__info {
+        font-family: $text;
+        font-weight: $w-text-regular;
+        font-size: $text-xs;
+        line-height: 18px;
+        color: $light;
+      }
+      .apiece {
+        margin-right: 8px;
+        font-family: $text;
+        font-weight: $w-text-regular;
+        font-size: $text-xs;
+        line-height: 18px;
+        color: $hardest;
+      }
+      .discount {
+        padding: 4px 8px;
+        font-family: $text;
+        font-weight: $w-text-regular;
+        font-size: $text-s;
+        line-height: 24px;
+        color: $primary-text;
+        background-color: $primary;
+        border-radius: 4px;
+      }
+    }
+  }
+  .amountBtns {
+    margin-right: 16px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    background-color: $secondary;
+    border-radius: 4px;
+    .minusBtn {
+      fill: $secondary-text;
+      cursor: pointer;
+    }
+    .amount {
+      margin: 0 8px;
+      font-family: $text;
+      font-weight: $w-text-regular;
+      font-size: $text-s;
+      line-height: 24px;
+      color: $secondary-text;
+    }
+    .plusBtn {
+      fill: $secondary-text;
+      cursor: pointer;
+    }
+  }
+  .totalPrice {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    &__bold {
+      font-family: $text-bold;
+      font-weight: $w-text-bold;
+      font-size: $text-bold-m;
+      line-height: 27px;
+      color: $surface-text;
+    }
+    &__crossout {
+      font-family: $text-bold;
+      font-weight: $w-text-regular;
+      font-size: $text-bold-s;
+      line-height: 24px;
+      color: $hard;
+      text-decoration-line: line-through;
+      &_bold {
+        font-weight: $w-text-bold;
+        color: $surface-text;
+        text-decoration: none;
+      }
+    }
+  }
+}

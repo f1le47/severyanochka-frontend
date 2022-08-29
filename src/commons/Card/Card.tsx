@@ -5,6 +5,8 @@ import { ICard } from './ICard'
 import formattingProductName from 'utils/formattingProductName'
 import { useActions, useAppSelector } from 'hooks/redux'
 import { useState } from 'react'
+import {ReactComponent as MinusBtn} from 'assets/img/minus.svg'
+import {ReactComponent as PlusBtn} from 'assets/img/plus.svg'
 
 const Card = ({product}: ICard) => {
 
@@ -22,7 +24,7 @@ const Card = ({product}: ICard) => {
 
   const formattedName = formattingProductName(name)
 
-  const {addFavoriteProduct, removeFavoriteProduct} = useActions()
+  const {addFavoriteProduct, removeFavoriteProduct, addBasketProduct, removeBasketProduct, addNewBasketProduct} = useActions()
   const {favoriteProductIds} = useAppSelector(state => state.favorite)
 
   const [isFavorited, setIsFavorited] = useState(false)
@@ -42,6 +44,26 @@ const Card = ({product}: ICard) => {
       addFavoriteProduct({productId: id})
     }
   }
+
+  const handleBasket = () => {
+    addNewBasketProduct({productId: id})
+  }
+  const handleMinusBtn = () => {
+    removeBasketProduct({productId: id})
+  }
+  const handlePlusBtn = () => {
+    addBasketProduct({productId: id})
+  }
+
+  let alreadyInBasket = false
+  let amountBasketProduct = 0
+  const basketProducts = useAppSelector(state => state.basket.basketProducts)
+  basketProducts.forEach(basketProduct => {
+    if (basketProduct.productId === id) {
+      alreadyInBasket = true
+      amountBasketProduct = basketProduct.amount
+    }
+  })
 
   return (
     <div className={s.card}>
@@ -74,9 +96,20 @@ const Card = ({product}: ICard) => {
             )
           })}
         </div>
-        <div className={s.btn}>
-          <button className={s.button}>В корзину</button>
-        </div>
+        {alreadyInBasket ? 
+        (
+          <div className={s.regulationBtns}>
+            <MinusBtn onClick={handleMinusBtn} className={s.minusBtn} />
+            <span className={s.amountBasketProduct}>{amountBasketProduct}</span>
+            <PlusBtn onClick={handlePlusBtn} className={s.plusBtn} />
+          </div>
+        ) 
+        : 
+        (
+          <div className={s.btn}>
+            <button className={s.button} onClick={handleBasket}>В корзину</button>
+          </div>
+        )}
       </div>
     </div>
   )

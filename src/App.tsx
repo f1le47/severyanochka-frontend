@@ -7,14 +7,16 @@ import Main from "pages/Main/Main";
 import './App.scss'
 import Footer from "components/Footer/Footer";
 import Favorite from "pages/Favorite/Favorite";
+import Basket from "pages/Basket/Basket";
 
 function App() {
 
-  const {checkAuth, getFavoriteProductIds} = useActions()
-  const {isAuth, errors, successes} = useAppSelector(state => state.user)
   const productErrors = useAppSelector(state => state.product.errors)
   const favoriteErrors = useAppSelector(state => state.favorite.errors)
-
+  
+  const {isAuth, errors, successes} = useAppSelector(state => state.user)
+  const {checkAuth, getFavoriteProductIds, getAmountBasketProducts, getBasketProducts} = useActions()
+  
   useEffect(() => {
     if (!isAuth) {
       checkAuth()
@@ -23,6 +25,8 @@ function App() {
 
   if (isAuth) {
     getFavoriteProductIds()
+    getAmountBasketProducts()
+    getBasketProducts()
   }
 
   return (
@@ -40,6 +44,7 @@ function App() {
           <Routes>
             <Route path="/" element={ <Main /> } />
             <Route path="/favorite" element={<Favorite />} />
+            <Route path="/basket" element={<Basket />} />
           </Routes>
         </div>
       <Footer />

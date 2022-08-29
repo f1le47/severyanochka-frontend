@@ -30,6 +30,6 @@ export type CategoryType = {
 export type DiscountType = {
   id: number;
   discount: number;
-  priceWithCard: string;
+  priceWithCard: number;
   productId: number;
 }

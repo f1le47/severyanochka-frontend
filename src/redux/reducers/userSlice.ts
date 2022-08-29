@@ -1,9 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { UserType } from 'dtos/userApiDtos/ICheckAuthDto';
+import { UserType } from 'dtos/userApiDtos/checkAuthDto/ICheckAuthDto';
+import { SavingsCardType } from 'dtos/userApiDtos/savingsCardDto/ISavingsCardDto';
 
 interface IUserState {
   isAuth: boolean
   user: UserType
+  savingsCard: SavingsCardType
   isLoading: boolean
   errors: Array<string>
   successes: Array<string>
@@ -12,6 +14,7 @@ interface IUserState {
 const initialState: IUserState = {
   isAuth: false,
   user: {
+    id: 0,
     phoneNumber: '',
     name: '',
     surname: '',
@@ -20,7 +23,12 @@ const initialState: IUserState = {
     city: '',
     gender: 'male',
     role: '',
-    isActivated: false
+    isActivated: false,
+    haveSavingsCard: false,
+  },
+  savingsCard: {
+    numberOfPoints: 0,
+    userId: 0
   },
   isLoading: false,
   errors: [],
@@ -53,6 +61,7 @@ export const userSlice = createSlice({
     setUserNullify(state) {
       state.isAuth = false
       state.user = {
+        id: 0,
         phoneNumber: '',
         name: '',
         surname: '',
@@ -61,8 +70,12 @@ export const userSlice = createSlice({
         city: '',
         gender: 'male',
         role: '',
-        isActivated: false
+        isActivated: false,
+        haveSavingsCard: false,
       }
+    },
+    setSavingsCard(state, action: PayloadAction<SavingsCardType>) {
+      state.savingsCard = action.payload;
     },
     clearLatestError(state) {
       if (state.errors.length > 0) {

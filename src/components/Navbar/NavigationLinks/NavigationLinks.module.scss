@@ -1,15 +1,28 @@
-@import '../../../variables.scss';
+@import 'variables.scss';
 
 .links {
   display: flex;
   align-items: center;
   &Btn {
+    position: relative;
     margin-right: 24px;
     display: flex;
     align-items: center;
     flex-direction: column;
     cursor: pointer;
     text-decoration: none;
+    .amountBasketProducts {
+      padding: 2px 4px;
+      top: -5px;
+      right: 10px;
+      position: absolute;
+      font-family: $text;
+      font-weight: $w-text-regular;
+      font-size: 8px;
+      color: $primary-text;
+      background-color: $primary;
+      border-radius: 4px;
+    }
     &__icon {
       margin-bottom: 8px;
       height: 24px;

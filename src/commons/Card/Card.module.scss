@@ -131,5 +131,29 @@
       cursor: pointer;
       outline: none;
     }
+    .regulationBtns {
+      padding: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: $secondary;
+      border: 1px solid $secondary;
+      border-radius: 4px;
+      .minusBtn {
+        fill: $secondary-text;
+        cursor: pointer;
+      }
+      .amountBasketProduct {
+        font-family: $text;
+        font-weight: $w-text-regular;
+        font-size: $text-s;
+        line-height: 24px;
+        color: $secondary-text;
+      }
+      .plusBtn {
+        fill: $secondary-text;
+        cursor: pointer;
+      }
+    }
   }
 }

@@ -1,7 +1,8 @@
 import { $authInstance, $instance } from './index';
 import { IConfirmCode, ILogin, IRegistration, IRestorePassword, IResendCode, INewPassword } from 'types/http/IUserApi';
 import { DefaultDto } from 'dtos/DefaultDto';
-import { CheckAuthDto } from 'dtos/userApiDtos/CheckAuthDto';
+import { CheckAuthDto } from 'dtos/userApiDtos/checkAuthDto/CheckAuthDto';
+import { SavingsCardDto } from 'dtos/userApiDtos/savingsCardDto/savingsCardDto';
 
 export const registration = async ({birthday, city, gender, name, password, phoneNumber, region, surname}: IRegistration) => {
   const response = await $instance.post('/user/registration', {phoneNumber, surname, name, password, birthday, region, city, gender})
@@ -68,5 +69,16 @@ export const newPassword = async ({phoneNumber, password}: INewPassword) => {
   const response = await $instance.post('/user/new-password', {phoneNumber, password})
 
   const responseDto = new DefaultDto({message: response.data.message, status: response.status})
+  return {...responseDto}
+}
+
+export const savingsCard = async () => {
+  const response = await $authInstance.get('/savings-card/savings-card')
+
+  const responseDto = new SavingsCardDto({
+    message: response.data.message,
+    savingsCard: response.data.savingsCard,
+    status: response.status
+  })
   return {...responseDto}
 }

@@ -1,0 +1,21 @@
+@import 'variables.scss';
+
+.basketItems {
+  display: flex;
+  flex-direction: column;
+  width: 876px;
+  .basketItem {
+    margin-bottom: 24px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  .empty {
+    align-self: center;
+    font-family: $text;
+    font-weight: $w-text-regular;
+    font-size: $text-m;
+    line-height: 28px;
+    color: $hard;
+  }
+}

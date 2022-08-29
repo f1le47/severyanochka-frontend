@@ -1,0 +1,153 @@
+@import 'variables.scss';
+
+.checkout {
+  display: flex;
+  flex-direction: column;
+  width: 272px;
+  .cardSavings {
+    display: flex;
+    flex-direction: column;
+    .writeOff {
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      &__text {
+        margin-left: 10px;
+        font-family: $text;
+        font-weight: $w-text-regular;
+        font-size: $text-s;
+        line-height: 24px;
+        color: $surface-text;
+      }
+    }
+    &__text {
+      font-family: $text;
+      font-weight: $w-text-regular;
+      font-size: $text-s;
+      line-height: 24px;
+      color: $hard;
+    }
+  }
+  .dividingLine {
+    margin: 24px 0;
+    fill: $lightest;
+  }
+  .price {
+    display: flex;
+    flex-direction: column;
+    &Info {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .amount {
+        font-family: $text;
+        font-weight: $w-text-regular;
+        font-size: $text-s;
+        line-height: 24px;
+        color: $hard;
+      }
+      .amountPrice {
+        font-family: $text;
+        font-weight: $w-text-regular;
+        font-size: $text-s;
+        line-height: 24px;
+        color: $surface-text;
+      }
+    }
+    .discount {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      &__text {
+        font-family: $text;
+        font-weight: $w-text-regular;
+        font-size: 16px;
+        line-height: 24px;
+        color: $hard;
+      }
+      &__discount {
+        font-family: $text-bold;
+        font-weight: $w-text-bold;
+        font-size: $text-bold-s;
+        line-height: 24px;
+        color: $primary;
+      }
+    }
+  }
+  .totalPrice {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &__text {
+      font-family: $text;
+      font-weight: $w-text-regular;
+      font-size: $text-s;
+      line-height: 24px;
+      color: $hard;
+    }
+    &__price {
+      font-family: $text-bold;
+      font-weight: $w-text-bold;
+      font-size: $text-bold-l;
+      line-height: 36px;
+      color: $surface-text;
+    }
+  }
+  .amountBonuses {
+    margin-bottom: 24px;
+    padding: 4px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .bonusIcon {
+      margin-right: 8px;
+      fill: $secondary;
+    }
+    .getBonuses {
+      display: flex;
+      align-items: center;
+      &__text {
+        font-family: $text-bold;
+        font-weight: $w-text-regular;
+        font-size: $text-bold-xs;
+        line-height: 18px;
+        color: $secondary;
+        &_bold {
+          margin-left: 4px;
+          font-weight: $w-text-bold;
+        }
+      }
+    }
+  }
+  .minimalSum {
+    align-self: center;
+    margin-bottom: 16px;
+    padding: 4px 8px;
+    width: 199px;
+    font-family: $text;
+    font-weight: $w-text-regular;
+    font-size: $text-xs;
+    line-height: 18px;
+    color: $primary-text;
+    background-color: $error;
+    border-radius: 4px;
+  }
+  .orderBtn {
+    padding: 12px 16px;
+    font-family: $text;
+    font-weight: $w-text-regular;
+    font-size: $text-l;
+    line-height: 36px;
+    color: $primary;
+    background-color: $primary-muted;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    cursor: pointer;
+    &_active {
+      color: $primary-text;
+      background-color: $primary;
+    }
+  }
+}
