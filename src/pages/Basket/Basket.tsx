@@ -1,4 +1,3 @@
-import BasketItem from 'commons/BasketItem/BasketItem'
 import BreadCrumbs from 'commons/BreadCrumbs/BreadCrumbs'
 import Container from 'commons/Container/Container'
 import Content from 'commons/Content/Content'

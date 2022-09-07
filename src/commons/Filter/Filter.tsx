@@ -6,12 +6,10 @@ import IosSwitchMaterialUi from 'ios-switch-material-ui'
 import { IFilter } from './IFilter'
 
 
-const Filter = ({setCountRange, countRange, favoriteCategories, minPrice, maxPrice, handleBlurRange, handleClear, setCurrentCategory}: IFilter) => {
+const Filter = ({setCountRange, countRange, categories, minPrice, maxPrice, handleBlurRange, handleClear, setCurrentCategory}: IFilter) => {
 
   const [range, setRange] = useState([minPrice, maxPrice])
   const [isStock, setIsStock] = useState(true)
-
-  const [, startTransition] = useTransition()
 
   useEffect(() => {
     setRange([minPrice, maxPrice])
@@ -34,19 +32,11 @@ const Filter = ({setCountRange, countRange, favoriteCategories, minPrice, maxPri
     const currentValue = Number(e.target.value)
 
     setRange([currentValue, range[1]])
-
-    startTransition(() => {
-      setCountRange([currentValue, countRange[1]])
-    })
   }
   const handleMaxChange = (e: any) => {
     const currentValue = Number(e.target.value)
 
     setRange([range[0], currentValue])
-
-    startTransition(() => {
-      setCountRange([countRange[0], currentValue])
-    })
   }
 
   return (
@@ -85,11 +75,24 @@ const Filter = ({setCountRange, countRange, favoriteCategories, minPrice, maxPri
           />
         </Box>
       </div>
-      <div className={s.categories}>
-        {favoriteCategories.map(favoriteCategory => {
-          return <button onClick={() => setCurrentCategory(favoriteCategory)} className={s.category}>{favoriteCategory.name}</button>
+      {categories && (
+        <div className={s.categories}>
+        {categories.map(favoriteCategory => {
+          return (
+            <button 
+              onClick={() => {
+                if (!!setCurrentCategory) {
+                  setCurrentCategory(favoriteCategory)
+                }
+              }} 
+              className={s.category}
+            >
+              {favoriteCategory.name}
+            </button>
+          )
         })}
       </div>
+      )}
       <div className={s.inStock}>
         <IosSwitchMaterialUi
           colorKnobOnLeft="#fff"

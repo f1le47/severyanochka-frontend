@@ -11,7 +11,9 @@ import { ProfileContext } from 'utils/Contexts';
 import { useAppSelector } from 'hooks/redux';
 import { IProfile } from './IProfile';
 
-const Profile = ({isDropDownProfileVisible, setIsDropDownProfileVisible}: IProfile) => {
+const Profile = ({}: IProfile) => {
+
+  const [isDropDownProfileVisible, setIsDropDownProfileVisible] = useState(false);
 
   const [isAuthWindowVisible, setIsAuthWindowVisible] = useState(false)
 
@@ -46,9 +48,11 @@ const Profile = ({isDropDownProfileVisible, setIsDropDownProfileVisible}: IProfi
           <span className={s.login__text}>Войти</span>
           <img src={login} alt="log" className={s.login__img} />
           </div>
-          {isAuthWindowVisible && <Modal id="login-modal">
-                                    <AuthWindow setIsAuthWindowVisible={setIsAuthWindowVisible} />
-                                  </Modal>}
+          {isAuthWindowVisible && (
+            <Modal id="login-modal">
+              <AuthWindow setIsAuthWindowVisible={setIsAuthWindowVisible} />
+            </Modal>
+          )}
         </>
         ) }
   </ProfileContext.Provider>

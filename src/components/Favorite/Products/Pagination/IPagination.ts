@@ -1,5 +1,5 @@
 export interface IPagination {
-  favoriteItems: number
+  items: number
   displayedItems: number
   activePage: number;
   setActivePage: React.Dispatch<React.SetStateAction<number>>;

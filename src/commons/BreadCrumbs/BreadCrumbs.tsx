@@ -13,7 +13,7 @@ const BreadCrumbs = () => {
     <div className={s.breadCrumbs}>
       <NavLink to='/' className={s.link}>Главная</NavLink>
       {paths.map((path, index) => {
-        const pathText = formattingPathText(path.toString())
+        const pathText = formattingPathText(path)
         return index !== (paths.length - 1) ? 
         (
           <>

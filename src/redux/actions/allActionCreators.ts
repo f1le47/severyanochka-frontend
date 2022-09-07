@@ -1,3 +1,4 @@
+import { categoriesActionCreators } from './categoriesActionCreators/categoriesActionCreators';
 import { basketActionCreators } from './basketActionCreators/basketActionCreators';
 import { authActionCreators } from "./authActionCreators/authActionCreators";
 import { favoriteActionCreators } from "./favoriteActionCreators/favoriteActionCreators";
@@ -7,5 +8,6 @@ export const allActionCreators = {
   ...authActionCreators,
   ...productActionCreators,
   ...favoriteActionCreators,
-  ...basketActionCreators
+  ...basketActionCreators,
+  ...categoriesActionCreators
 }

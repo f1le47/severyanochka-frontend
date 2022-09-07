@@ -26,7 +26,8 @@ const Checkout = ({basketProducts}: ICheckout) => {
   const numberOfPoints = useAppSelector(state => state.user.savingsCard.numberOfPoints)
 
   return (
-    <div className={s.checkout}>
+    basketProducts.length > 0 ? (
+      <div className={s.checkout}>
       {haveSavingsCard && numberOfPoints > 0 && (
         <>
           <div className={s.cardSavings}>
@@ -76,6 +77,9 @@ const Checkout = ({basketProducts}: ICheckout) => {
         Оформить заказ
       </button>
     </div>
+    ) 
+    :
+    (<></>)
   )
 }
 

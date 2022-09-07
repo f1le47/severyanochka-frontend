@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { CategoryType } from 'dtos/categoryApiDtos/getCategoriesDto/IGetCategoriesDto';
 import { FavoriteProductIdType } from 'dtos/favoriteApiDtos/getFavoriteIdsDto/IGetFavoriteIds';
-import { CategoryType, ProductType } from 'dtos/productApiDtos/getProductsDto/IGetProducts';
+import { ProductType } from 'dtos/productApiDtos/getProductsDto/IGetProducts';
 interface IFavoriteSlice {
   isLoading: boolean
   favoriteProducts: Array<ProductType>

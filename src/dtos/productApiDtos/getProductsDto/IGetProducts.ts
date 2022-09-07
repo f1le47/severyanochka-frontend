@@ -1,3 +1,4 @@
+import { CategoryType } from "dtos/categoryApiDtos/getCategoriesDto/IGetCategoriesDto";
 import { IDefaultDto } from "dtos/IDefaultDto";
 
 export interface IGetProductsDto extends IDefaultDto {
@@ -20,11 +21,6 @@ export type ProductType = {
 export type BrandType = {
   id: number;
   name: string;
-}
-
-export type CategoryType = {
-  id: number;
-  name: string
 }
 
 export type DiscountType = {

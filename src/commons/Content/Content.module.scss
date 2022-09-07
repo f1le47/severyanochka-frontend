@@ -1,6 +1,7 @@
 @import 'variables.scss';
 
 .content {
+  min-height: 60vh;
   padding-bottom: 80px;
   position: relative;
   .title {

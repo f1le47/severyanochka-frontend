@@ -1,9 +1,9 @@
 import BreadCrumbs from 'commons/BreadCrumbs/BreadCrumbs'
 import Container from 'commons/Container/Container'
 import Content from 'commons/Content/Content'
-import Filter from 'components/Favorite/Filter/Filter'
+import Filter from 'commons/Filter/Filter'
 import Products from 'components/Favorite/Products/Products'
-import { CategoryType } from 'dtos/productApiDtos/getProductsDto/IGetProducts'
+import { CategoryType } from 'dtos/categoryApiDtos/getCategoriesDto/IGetCategoriesDto'
 import { useActions, useAppSelector } from 'hooks/redux'
 import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
@@ -75,7 +75,7 @@ const Favorite = () => {
               handleBlurRange={handleBlurRange}
               setCountRange={setCountRange} 
               countRange={countRange}
-              favoriteCategories={favoriteCategories}
+              categories={favoriteCategories}
               minPrice={minPrice}
               maxPrice={maxPrice}
               setCurrentCategory={setCurrentCategory}
@@ -85,7 +85,7 @@ const Favorite = () => {
               products={favoriteProducts}
               countRange={countRange}
               setCountRange={setCountRange}
-              favoriteItems={favoriteItems}
+              items={favoriteItems}
               activePage={activePage}
               setActivePage={setActivePage}
               minPrice={minPrice}

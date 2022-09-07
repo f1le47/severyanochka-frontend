@@ -9,7 +9,7 @@ const Products = ({
   products, 
   countRange, 
   setCountRange, 
-  favoriteItems, 
+  items, 
   activePage, 
   setActivePage, 
   minPrice, 
@@ -30,7 +30,14 @@ const Products = ({
         {currentCategory && (
           <div className={s.filter}>
             <span className={s.filter__text}>{currentCategory.name}</span>
-            <img onClick={() => setCurrentCategory(null)} src={xmark} alt="X" />
+            <img 
+              onClick={() => {
+                if (!!setCurrentCategory) {
+                  setCurrentCategory(null)
+                }
+              }} 
+              src={xmark} alt="X" 
+            />
           </div>
         )}
         <div className={s.filter}>
@@ -51,9 +58,9 @@ const Products = ({
           </div>
         ))}
       </div>
-      {favoriteItems > 0 && (
+      {items > 0 && (
         <Pagination 
-          favoriteItems={favoriteItems}
+          items={items}
           displayedItems={6}
           activePage={activePage}
           setActivePage={setActivePage}

@@ -1,3 +1,4 @@
+import categoriesSlice from './reducers/categoriesSlice';
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import basketSlice from "./reducers/basketSlice";
 import favoriteSlice from "./reducers/favoriteSlice";
@@ -9,7 +10,8 @@ const rootReducer = combineReducers({
   user: userSlice,
   product: productSlice,
   favorite: favoriteSlice,
-  basket: basketSlice
+  basket: basketSlice,
+  categories: categoriesSlice
   // [userAPI.reducerPath]: userAPI.reducer
 })
 

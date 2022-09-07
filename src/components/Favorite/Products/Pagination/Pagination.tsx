@@ -6,9 +6,9 @@ import {ReactComponent as DoubleMarkRight} from 'assets/img/double-mark-right.sv
 import { useEffect, useState } from 'react'
 import { IPagination } from './IPagination'
 
-const Pagination = ({favoriteItems, displayedItems, activePage, setActivePage}: IPagination) => {
+const Pagination = ({items, displayedItems, activePage, setActivePage}: IPagination) => {
 
-  const favoritePages = Math.ceil(favoriteItems / displayedItems)
+  const favoritePages = Math.ceil(items / displayedItems)
   const defaultLastPage = favoritePages > displayedItems ? displayedItems : favoritePages
   
   const [pageRange, setPageRange] = useState([1, defaultLastPage])
