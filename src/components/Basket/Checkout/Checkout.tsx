@@ -6,6 +6,7 @@ import {ReactComponent as SemiCircleBottom} from 'assets/img/semi-circle-bottom.
 import { ICheckout } from './ICheckout'
 import formattingPrice from 'utils/formattingPrice'
 import { useAppSelector } from 'hooks/redux'
+import formattingQuantitativeText from 'utils/formattingQuantitativeText'
 
 const Checkout = ({basketProducts}: ICheckout) => {
 
@@ -17,10 +18,12 @@ const Checkout = ({basketProducts}: ICheckout) => {
   basketProducts.forEach(basketProduct => {
     amountProducts = amountProducts + basketProduct.amount
     commonPrice = commonPrice + basketProduct.price * basketProduct.amount
-    if (basketProduct.discount) {
-      discount = discount + Number(basketProduct.discount.priceWithCard)
+    if (!!basketProduct.discount) {
+      discount = discount + (Number(basketProduct.price) - Number(basketProduct.discount.priceWithCard)) * basketProduct.amount
     }
   })
+
+  const amountBonuses = Math.floor((commonPrice - discount) / 10)
 
   const haveSavingsCard = useAppSelector(state => state.user.user.haveSavingsCard)
   const numberOfPoints = useAppSelector(state => state.user.savingsCard.numberOfPoints)
@@ -66,7 +69,7 @@ const Checkout = ({basketProducts}: ICheckout) => {
         <SemiCircleBottom className={s.bonusIcon} />
         <div className={s.getBonuses}>
           <span className={s.getBonuses__text}>Вы получаете</span>
-          <span className={`${s.getBonuses__text} ${s.getBonuses__text_bold}`}>{`${Math.floor((commonPrice - discount) / 10)} бонусов`}</span>
+          <span className={`${s.getBonuses__text} ${s.getBonuses__text_bold}`}>{`${amountBonuses} ${formattingQuantitativeText('балл', amountBonuses)}`}</span>
         </div>
       </div>
       {commonPrice - discount < 1000 && <span className={s.minimalSum}>Минимальная сумма заказа 1000р</span>}

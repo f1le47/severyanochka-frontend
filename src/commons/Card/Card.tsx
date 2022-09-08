@@ -1,39 +1,29 @@
 import s from './Card.module.scss'
 import {ReactComponent as Favorite} from 'assets/img/card/favorite.svg'
-import {ReactComponent as Rate} from 'assets/img/card/rate.svg'
 import { ICard } from './ICard'
 import formattingProductName from 'utils/formattingProductName'
 import { useActions, useAppSelector } from 'hooks/redux'
-import { useState } from 'react'
 import {ReactComponent as MinusBtn} from 'assets/img/minus.svg'
 import {ReactComponent as PlusBtn} from 'assets/img/plus.svg'
+import { useNavigate } from 'react-router-dom'
+import Rating from 'commons/Rating/Rating'
 
 const Card = ({product}: ICard) => {
 
-  const {name, price, rating, img, discount, id} = product
+  const {name, price, rating, img, discount, id, category} = product
   const imgSrc = `${process.env.REACT_APP_STATIC_URL}/${img}`
 
-  const rest = 5 - rating
-  const rateArr = []
-  for (let i = 0; i < rating; i++) {
-    rateArr.push(1)
-  }
-  for (let i = 0; i < rest; i++) {
-    rateArr.push(0)
-  }
+  const navigate = useNavigate()
 
   const formattedName = formattingProductName(name)
 
   const {addFavoriteProduct, removeFavoriteProduct, addBasketProduct, removeBasketProduct, addNewBasketProduct} = useActions()
   const {favoriteProductIds} = useAppSelector(state => state.favorite)
 
-  const [isFavorited, setIsFavorited] = useState(false)
-
+  let isFavorited = false
   favoriteProductIds.forEach(favoriteProductId => {
-    if (!isFavorited) {
-      if (favoriteProductId.productId === id) {
-        setIsFavorited(true)
-      }
+    if (favoriteProductId.productId === id) {
+      isFavorited = true
     }
   })
 
@@ -55,6 +45,10 @@ const Card = ({product}: ICard) => {
     addBasketProduct({productId: id})
   }
 
+  const handleImgRedirect = () => {
+    navigate(`/catalog/${category.id}/${id}`, {replace: false})
+  }
+
   let alreadyInBasket = false
   let amountBasketProduct = 0
   const basketProducts = useAppSelector(state => state.basket.basketProducts)
@@ -72,7 +66,12 @@ const Card = ({product}: ICard) => {
           className={isFavorited ? `${s.favorite} ${s.favorite_active}` : s.favorite}
           onClick={handleFavorite}
         />
-        <img src={imgSrc} alt="#" className={s.productImage} />
+        <img 
+          src={imgSrc} 
+          alt="#" 
+          className={s.productImage}
+          onClick={handleImgRedirect}
+        />
         {discount && <span className={s.discount}>{`-${discount.discount}%`}</span>}
       </div>
       <div className={s.block}>
@@ -90,11 +89,7 @@ const Card = ({product}: ICard) => {
         </div>
         <p className={s.productName}>{formattedName}</p>
         <div className={s.rating}>
-          {rateArr.map(isActive => {
-            return (
-              <Rate className={isActive === 1 ? `${s.rate} ${s.rate_active}` : s.rate} />
-            )
-          })}
+          <Rating rating={rating} />
         </div>
         {alreadyInBasket ? 
         (

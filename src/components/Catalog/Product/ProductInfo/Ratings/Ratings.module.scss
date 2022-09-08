@@ -1,0 +1,83 @@
+@import 'variables.scss';
+
+.ratings {
+  margin-bottom: 120px;
+  display: flex;
+  flex-direction: column;
+  .title {
+    margin-bottom: 40px;
+    font-family: $text-header;
+    font-weight: $w-text-regular;
+    font-size: $text-header-m;
+    line-height: 54px;
+    color: $surface-text;
+  }
+  .body {
+    display: flex;
+    .amountRatings {
+      margin-right: 144px;
+      display: flex;
+      flex-direction: column;
+      .commonRating {
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        &__text {
+          margin-left: 16px;
+          font-family: $text-bold;
+          font-weight: $w-text-bold;
+          font-size: $text-bold-m;
+          line-height: 27px;
+          color: $surface-text;
+        }
+      }
+      .rateType {
+        display: flex;
+        align-items: center;
+        &__number {
+          width: 20px;
+          font-family: $text;
+          font-weight: $w-text-regular;
+          font-size: $text-s;
+          line-height: 24px;
+          color: $surface-text;
+        }
+        &__type {
+          text-align: left;
+        }
+        &__amount {
+          text-align: right;
+        }
+        &Stars {
+          margin: 0 16px;
+          display: flex;
+          align-items: center;
+          &__star {
+            margin-right: 4px;
+            &:last-child {
+              margin-right: 0;
+            }
+          }
+          &__color {
+            fill: $primary;
+          }
+          &__uncolor {
+            fill: $light;
+          }
+        }
+      }
+    }
+    .comments {
+      margin-bottom: 40px;
+      display: flex;
+      flex-direction: column;
+      .noComments {
+        align-self: center;
+        font-family: $text;
+        font-weight: $w-text-regular;
+        font-size: $text-s;
+        color: $hard;
+      }
+    }
+  }
+}

@@ -6,15 +6,28 @@ interface IProductSlice {
   products: Array<ProductType>
   discountProducts: Array<ProductType>
   latestProducts: Array<ProductType>
+  product: ProductType
   errors: Array<string>
 }
 
 const initialState: IProductSlice = {
+  isLoading: false,
   products: [],
   discountProducts: [],
   latestProducts: [],
+  product: {
+    id: 0,
+    name: '',
+    brand: {id: 0, name: ''},
+    category: {id: 0, name: '', img: ''},
+    discount: null,
+    img: '',
+    isFavorited: false,
+    price: 0,
+    rating: 0,
+    weight: 0
+  },
   errors: [],
-  isLoading: false
 }
 
 export const productSlice = createSlice({
@@ -36,6 +49,9 @@ export const productSlice = createSlice({
     },
     setLatestProducts(state, action: PayloadAction<Array<ProductType>>) {
       state.latestProducts = action.payload
+    },
+    setProduct(state, action: PayloadAction<ProductType>) {
+      state.product = action.payload
     },
     clearLatestProductError(state) {
       if (state.errors.length > 0) {

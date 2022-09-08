@@ -1,0 +1,13 @@
+@import 'variables.scss';
+
+.rating {
+  display: flex;
+  align-items: center;
+  .rate {
+    margin-right: 4px;
+    fill: $light;
+    &_active {
+      fill: $primary;
+    }
+  }
+}

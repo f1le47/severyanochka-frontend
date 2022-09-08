@@ -1,0 +1,74 @@
+@import 'variables.scss';
+
+.inputRate {
+  display: flex;
+  flex-direction: column;
+  .yourRate {
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    &__title {
+      margin-right: 16px;
+      font-family: $text-bold;
+      font-weight: $w-text-bold;
+      font-size: $text-bold-m;
+      line-height: 27px;
+      color: $surface-text;
+    }
+    .stars {
+      display: flex;
+      align-self: center;
+      &__star {
+        padding: 0 2px;
+        fill: $light;
+        cursor: pointer;
+        &:first-child {
+          padding-left: 0;
+        }
+        &:last-child {
+          padding-right: 0;
+        }
+        &_active {
+          fill: $primary;
+        }
+      }
+    }
+  }
+  .input {
+    margin-bottom: 16px;
+    padding: 8px 16px;
+    width: 656px;
+    min-height: 84px;
+    font-family: $text;
+    font-weight: $w-text-regular;
+    font-size: $text-s;
+    line-height: 24px;
+    color: $surface-text;
+    border: 1px solid $light;
+    border-radius: 4px;
+    resize: none;
+    &:focus {
+      outline: none;
+      border-color: $hard;
+    }
+  }
+  .btn {
+    padding: 8px;
+    width: 172px;
+    font-family: $text;
+    font-weight: $w-text-regular;
+    font-size: $text-s;
+    line-height: 24px;
+    color: $primary-text;
+    background-color: $primary;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    cursor: pointer;
+    &:disabled {
+      color: $primary;
+      background-color: $primary-muted;
+      cursor: not-allowed;
+    }
+  }
+}

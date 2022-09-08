@@ -1,0 +1,81 @@
+@import 'variables.scss';
+
+.comment {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  .user {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    &__img {
+      margin-right: 8px;
+      padding: 10px;
+      border-radius: 50%;
+      background-color: transparent;
+      border: 1px solid $lightest;
+    }
+    &__name {
+      font-family: $text;
+      font-weight: $w-text-regular;
+      font-size: $text-m;
+      line-height: 27px;
+      color: $surface-text;
+    }
+    &__you {
+      margin-left: 5px;
+      font-family: $text;
+      font-weight: $w-text-regular;
+      font-size: $text-xs;
+      line-height: 27px;
+      color: $hard;
+    }
+  }
+  .rating {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    &__date {
+      margin-left: 16px;
+      font-family: $text;
+      font-weight: $w-text-regular;
+      font-size: $text-xs;
+      line-height: 18px;
+      color: $hard;
+    }
+  }
+  &__text {
+    max-width: 688px;
+    font-family: $text;
+    font-weight: $w-text-regular;
+    font-size: $text-s;
+    line-height: 24px;
+    color: $surface-text;
+  }
+  .invisible {
+    position: absolute;
+    height: 100%;
+    right: -75px;
+    width: 80px;
+    background-color: transparent;
+  }
+  .xmark {
+    padding: 1px;
+    top: 50%;
+    right: -75px;
+    position: absolute;
+    z-index: 3;
+    opacity: 0;
+    width: 24px;
+    fill: $surface-text;
+    cursor: pointer;
+    &_active {
+      opacity: 1;
+    }
+    &:hover {
+      fill: $surface;
+      background-color: $error;
+      border-radius: 50%;
+    }
+  }
+}

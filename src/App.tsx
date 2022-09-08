@@ -10,6 +10,7 @@ import Favorite from "pages/Favorite/Favorite";
 import Basket from "pages/Basket/Basket";
 import Catalog from "pages/Catalog/Catalog";
 import Category from "pages/Catalog/Category/Category";
+import Product from "pages/Catalog/Category/Product/Product";
 
 function App() {
 
@@ -57,6 +58,7 @@ function App() {
             <Route path="basket" element={<Basket />} />
             <Route path="catalog" element={<Catalog />} />
             <Route path="catalog/:categoryId" element={<Category />} />
+            <Route path="catalog/:categoryId/:productId" element={<Product />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </div>

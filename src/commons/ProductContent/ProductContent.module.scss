@@ -1,0 +1,14 @@
+@import 'variables.scss';
+
+.content {
+  min-height: 60vh;
+  padding-bottom: 80px;
+  .title {
+    margin-bottom: 16px;
+    font-family: $text-header;
+    font-weight: $w-text-bold;
+    font-size: $text-header-s;
+    line-height: 36px;
+    color: $surface-text;
+  }
+}

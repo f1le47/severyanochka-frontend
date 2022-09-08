@@ -5,3 +5,7 @@ export interface IGetProducts {
   max?: number
   categoryId?: number
 }
+
+export interface IGetProduct {
+  id: number
+}

@@ -9,7 +9,7 @@ export type ProductType = {
   id: number;
   name: string;
   price: number;
-  weight: string;
+  weight: number;
   rating: number;
   img: string;
   brand: BrandType;

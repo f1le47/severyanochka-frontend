@@ -1,7 +1,7 @@
 import Card from 'commons/Card/Card'
 import { IProducts } from './IProducts'
 import s from './Products.module.scss'
-import xmark from 'assets/img/xmark.svg'
+import {ReactComponent as Xmark} from 'assets/img/xmark.svg'
 import Pagination from './Pagination/Pagination'
 import { v4 } from 'uuid'
 
@@ -30,13 +30,13 @@ const Products = ({
         {currentCategory && (
           <div className={s.filter}>
             <span className={s.filter__text}>{currentCategory.name}</span>
-            <img 
+            <Xmark 
               onClick={() => {
                 if (!!setCurrentCategory) {
                   setCurrentCategory(null)
                 }
               }} 
-              src={xmark} alt="X" 
+              className={s.filter__btn}
             />
           </div>
         )}
@@ -44,11 +44,11 @@ const Products = ({
           <span className={s.filter__text}>
             {`Цена от ${countRange[0]} до ${countRange[1]}`}
           </span>
-          <img src={xmark} className={s.filter__btn} alt="X" />
+          <Xmark className={s.filter__btn} />
         </div>
         <div className={`${s.filter} ${s.filter__clear}`} onClick={handleClearInComp}>
           <span className={s.filter__text}>Очистить</span>
-          <img src={xmark} alt="X" />
+          <Xmark className={s.filter__btn} />
         </div>
       </div>
       <div className={s.cards}>

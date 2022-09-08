@@ -53,7 +53,7 @@ const BasketItem = ({basketProduct}: IBasketItem) => {
       </div>
       <div className={s.totalPrice}>
         {discount && (
-          <span className={s.totalPrice__bold}>{formattingPrice(Math.floor((price * amount - discount.discount * amount) * 100) / 100)}</span>
+          <span className={s.totalPrice__bold}>{formattingPrice(Math.floor((discount.priceWithCard * amount) * 100) / 100)}</span>
         )}
         <span className={discount ? s.totalPrice__crossout : `${s.totalPrice__crossout} ${s.totalPrice__crossout_bold}`}>
           {formattingPrice(Math.floor((price * amount) * 100) / 100)}

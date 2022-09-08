@@ -1,0 +1,214 @@
+@import 'variables.scss';
+
+.card {
+  margin-bottom: 120px;
+  display: flex;
+  .miniatures {
+    margin-right: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .miniature {
+      width: 64px;
+      height: 86px;
+      object-fit: contain;
+      background-color: #fff;
+      border-radius: 4px;
+      box-shadow: $shadow-xs;
+    }
+  }
+  .productImg {
+    margin-right: 40px;
+    position: relative;
+    .img {
+      width: 504px;
+      height: 496px;
+      object-fit: contain;
+      background-color: #fff;
+      border-radius: 4px;
+      box-shadow: $shadow-xs;
+    }
+    .discount {
+      padding: 4px 8px;
+      top: 20px;
+      right: 20px;  
+      position: absolute;
+      font-family: $text;
+      font-weight: $w-text-regular;
+      font-size: $text-s;
+      line-height: 24px;
+      color: $primary-text;
+      background-color: $primary;
+      border-radius: 4px;
+    }
+  }
+  .cardInfo {
+    width: 376px;
+    display: flex;
+    flex-direction: column;
+    .prices {
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      .price__info {
+        font-family: $text;
+        font-weight: $w-text-regular;
+        font-size: $text-xs;
+        line-height: 18px;
+        color: $light;
+      }
+      .default {
+        display: flex;
+        flex-direction: column;
+        &__price {
+          margin-bottom: 6px;
+          font-family: $text;
+          font-weight: $w-text-regular;
+          font-size: $text-l;
+          line-height: 36px;
+          color: $hardest;
+        }
+      }
+      .withCard {
+        display: flex;
+        flex-direction: column;
+        &__price {
+          font-family: $text-header;
+          font-weight: $w-text-bold;
+          font-size: $text-header-m;
+          line-height: 54px;
+          color: $surface-text;
+        }
+        &__info {
+          display: flex;
+          align-items: center;
+          &__icon {
+            margin-left: 8px;
+          }
+        }
+      }
+    }
+    .regulationBtns {
+      padding: 10px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      background-color: $primary;
+      border-radius: 4px;
+      &__btn {
+        fill: $primary-text;
+        cursor: pointer;
+      }
+      &__amount {
+        font-family: $text;
+        font-weight: $w-text-regular;
+        font-size: $text-l;
+        line-height: 36px;
+        color: $primary-text;
+      }
+    }
+    .cartBtn {
+      margin-bottom: 8px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: $primary;
+      border-radius: 4px;
+      cursor: pointer;
+      &__icon {
+        left: 16px;
+        position: absolute;
+      }
+      &__btn {
+        padding: 10px 0;
+        font-family: $text;
+        font-weight: $w-text-regular;
+        font-size: $text-l;
+        line-height: 36px;
+        color: $primary-text;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        cursor: pointer;
+      }
+    }
+    .bonuses {
+      margin-bottom: 8px;
+      padding: 4px 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &__icon {
+        margin-right: 8px;
+        fill: $secondary;
+      }
+      &Text {
+        display: flex;
+        align-items: center;
+        &__text {
+          margin-right: 4px;
+          font-family: $text-bold;
+          font-weight: $w-text-regular;
+          font-size: $text-bold-xs;
+          line-height: 18px;
+          color: $secondary;
+        }
+        &__amount {
+          font-family: $text-bold;
+          font-weight: $w-text-bold;
+          font-size: $text-bold-xs;
+          line-height: 18px;
+          color: $secondary;
+        }
+      }
+    }
+    .notify {
+      margin-bottom: 24px;
+      padding: 4px 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      &__icon {
+        margin-right: 8px;
+      }
+      &__text {
+        font-family: $text;
+        font-weight: $w-text-regular;
+        font-size: $text-xs;
+        line-height: 18px;
+        color: $hardest;
+      }
+    }
+    .productInfo {
+      display: flex;
+      flex-direction: column;
+      .line {
+        padding: 4px 8px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: $lightest;;
+        .type {
+          font-family: $text;
+          font-weight: $w-text-regular;
+          font-size: $text-xs;
+          line-height: 18px;
+          color: $surface-text;
+        }
+        .info {
+          font-family: $text-bold;
+          font-weight: $w-text-bold;
+          font-size: $text-bold-xs;
+          line-height: 18px;
+          color: $surface-text;
+        }
+        &:nth-child(2n) {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+}

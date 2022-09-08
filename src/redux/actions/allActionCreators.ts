@@ -3,11 +3,13 @@ import { basketActionCreators } from './basketActionCreators/basketActionCreator
 import { authActionCreators } from "./authActionCreators/authActionCreators";
 import { favoriteActionCreators } from "./favoriteActionCreators/favoriteActionCreators";
 import { productActionCreators } from "./productActionCreators/productActionCreators";
+import { ratingActionCreators } from './ratingActionCreators/ratingActionCreators';
 
 export const allActionCreators = {
   ...authActionCreators,
   ...productActionCreators,
   ...favoriteActionCreators,
   ...basketActionCreators,
-  ...categoriesActionCreators
+  ...categoriesActionCreators,
+  ...ratingActionCreators
 }

@@ -1,0 +1,71 @@
+@import 'variables.scss';
+
+.btns {
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  .vendorCode {
+    padding: 7px 0;
+    margin-right: 24px;
+    font-family: $text;
+    font-weight: $w-text-regular;
+    font-size: $text-xs;
+    line-height: 18px;
+    color: $surface-text;
+  }
+  .ratings {
+    margin-right: 24px;
+    display: flex;
+    align-items: center;
+    .commentsAmount {
+      margin-left: 8px;
+      font-family: $text-bold;
+      font-weight: $w-text-regular;
+      font-size: $text-bold-s;
+      line-height: 21px;
+      color: $surface-text;
+      text-decoration-line: underline;
+      cursor: pointer;
+    }
+  }
+  .share {
+    margin-right: 24px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    &__img {
+      margin-right: 8px;
+      padding: 4px 0;
+    }
+    &__text {
+      font-family: $text;
+      font-weight: $w-text-regular;
+      font-size: $text-xs;
+      line-height: 18px;
+      color: $hardest;
+    }
+  }
+  .favorite {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    &__img {
+      margin-right: 8px;
+      padding: 4px 0;
+      fill: $surface-text;
+      &_active {
+        fill: $primary;
+      }
+    }
+    &__text {
+      font-family: $text;
+      font-weight: $w-text-regular;
+      font-size: $text-xs;
+      line-height: 18px;
+      color: $hardest;
+      &_active {
+        color: $primary;
+      }
+    }
+  }
+}
