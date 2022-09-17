@@ -1,12 +1,12 @@
 @import 'variables.scss';
 
 .category {
-  margin-bottom: 120px;
+  margin-bottom: 80px;
   &:last-child {
     margin-bottom: 0;
   }
   .header {
-    margin-bottom: 40px;
+    margin-bottom: 16px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -37,8 +37,34 @@
     }
   }
   .cards {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 40px;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .category {
+    .cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      column-gap: 32px;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .category {
+    .header {
+      .title {
+        font-size: $m-text-header-m;
+      }
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 16px;
+      row-gap: 16px;
+    }
   }
 }

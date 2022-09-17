@@ -5,6 +5,13 @@ import s from './MainMap.module.scss'
 const MainMap = () => {
 
   const [activeMap, setActiveMap] = useState(1)
+  const screenWidth = window.screen.width
+  let mapWidth = 1208
+  if (screenWidth < 992 && screenWidth > 768) {
+    mapWidth = screenWidth - 32
+  } else if (screenWidth < 768) {
+    mapWidth = screenWidth - 32
+  }
 
   return (
     <div className={s.map}>
@@ -18,7 +25,7 @@ const MainMap = () => {
         {activeMap === 1 && 
           <Map 
             className={s.ymap}
-            width="1208px"
+            width={`${mapWidth}px`}
             height="354px"
             defaultState={{center: [65.325797, 53.423439], zoom: 16}} 
           >

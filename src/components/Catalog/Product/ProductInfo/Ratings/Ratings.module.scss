@@ -1,5 +1,6 @@
 @import 'variables.scss';
 
+
 .ratings {
   margin-bottom: 120px;
   display: flex;
@@ -77,6 +78,33 @@
         font-weight: $w-text-regular;
         font-size: $text-s;
         color: $hard;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .ratings {
+    margin-bottom: 100px;
+    .body {
+      .amountRatings {
+        margin-right: 16px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .ratings {
+    margin-bottom: 81px;
+    .body {
+      flex-direction: column;
+      .amountRatings {
+        margin-right: 0;
+        margin-bottom: 16px;
+      }
+      .comments {
+        margin-bottom: 16px;
       }
     }
   }

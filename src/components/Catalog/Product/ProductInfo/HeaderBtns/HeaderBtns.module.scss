@@ -4,68 +4,100 @@
   margin-bottom: 16px;
   display: flex;
   align-items: center;
-  .vendorCode {
-    padding: 7px 0;
-    margin-right: 24px;
-    font-family: $text;
-    font-weight: $w-text-regular;
-    font-size: $text-xs;
-    line-height: 18px;
-    color: $surface-text;
-  }
-  .ratings {
-    margin-right: 24px;
+  .info {
     display: flex;
     align-items: center;
-    .commentsAmount {
-      margin-left: 8px;
-      font-family: $text-bold;
+    .vendorCode {
+      padding: 7px 0;
+      margin-right: 24px;
+      font-family: $text;
       font-weight: $w-text-regular;
-      font-size: $text-bold-s;
-      line-height: 21px;
+      font-size: $text-xs;
+      line-height: 18px;
       color: $surface-text;
-      text-decoration-line: underline;
+    }
+    .ratings {
+      margin-right: 24px;
+      display: flex;
+      align-items: center;
+      .commentsAmount {
+        margin-left: 8px;
+        font-family: $text-bold;
+        font-weight: $w-text-regular;
+        font-size: $text-bold-s;
+        line-height: 21px;
+        color: $surface-text;
+        text-decoration-line: underline;
+        cursor: pointer;
+      }
+    }
+  }
+  .buttons {
+    display: flex;
+    align-items: center;
+    .share {
+      margin-right: 24px;
+      display: flex;
+      align-items: center;
       cursor: pointer;
-    }
-  }
-  .share {
-    margin-right: 24px;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    &__img {
-      margin-right: 8px;
-      padding: 4px 0;
-    }
-    &__text {
-      font-family: $text;
-      font-weight: $w-text-regular;
-      font-size: $text-xs;
-      line-height: 18px;
-      color: $hardest;
-    }
-  }
-  .favorite {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    &__img {
-      margin-right: 8px;
-      padding: 4px 0;
-      fill: $surface-text;
-      &_active {
-        fill: $primary;
+      &__img {
+        margin-right: 8px;
+        padding: 4px 0;
+      }
+      &__text {
+        font-family: $text;
+        font-weight: $w-text-regular;
+        font-size: $text-xs;
+        line-height: 18px;
+        color: $hardest;
       }
     }
-    &__text {
-      font-family: $text;
-      font-weight: $w-text-regular;
-      font-size: $text-xs;
-      line-height: 18px;
-      color: $hardest;
-      &_active {
-        color: $primary;
+    .favorite {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      &__img {
+        margin-right: 8px;
+        padding: 4px 0;
+        fill: $surface-text;
+        &_active {
+          fill: $primary;
+        }
+      }
+      &__text {
+        font-family: $text;
+        font-weight: $w-text-regular;
+        font-size: $text-xs;
+        line-height: 18px;
+        color: $hardest;
+        &_active {
+          color: $primary;
+        }
       }
     }
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .btns {
+    .vendorCode {
+      margin-right: 16px;
+    }
+    .ratings {
+      margin-right: 16px;
+      .commentsAmount {
+        font-size: 14px;
+      }
+    }
+    .share {
+      margin-right: 16px;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .btns {
+    flex-direction: column;
+    align-items: start;
   }
 }

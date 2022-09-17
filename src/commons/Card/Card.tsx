@@ -7,6 +7,7 @@ import {ReactComponent as MinusBtn} from 'assets/img/minus.svg'
 import {ReactComponent as PlusBtn} from 'assets/img/plus.svg'
 import { useNavigate } from 'react-router-dom'
 import Rating from 'commons/Rating/Rating'
+import formattingPrice from 'utils/formattingPrice'
 
 const Card = ({product}: ICard) => {
 
@@ -78,12 +79,12 @@ const Card = ({product}: ICard) => {
         <div className={s.count}>
           {discount && (
             <div className={s.withCard}>
-              <span className={s.withCard__price}>{`${discount.priceWithCard} ₽`}</span>
+              <span className={s.withCard__price}>{`${formattingPrice(discount.priceWithCard)}`}</span>
               <span className={s.countInfo}>С картой</span>
             </div>
           )}
           <div className={s.default}>
-            <span className={discount ? s.default__price : s.withCard__price}>{`${price} ₽`}</span>
+            <span className={discount ? s.default__price : s.withCard__price}>{`${formattingPrice(price)}`}</span>
             {discount && <span className={s.countInfo}>Обычная</span>}
           </div>
         </div>

@@ -79,3 +79,14 @@
     }
   }
 }
+
+@media only screen and (max-width: 768px) {
+  .comment {
+    .xmark {
+      right: 50px;
+      fill: $surface;
+      background-color: $error;
+      border-radius: 50%;
+    }
+  }
+}

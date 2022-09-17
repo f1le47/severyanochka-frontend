@@ -1,6 +1,12 @@
 @import 'variables.scss';
 
 .container {
-  width: $container-width;
+  max-width: $container-width;
   margin: 0 auto;
+}
+
+@media only screen and (max-width: 1230px) {
+  .container {
+    padding: 0 16px;
+  } 
 }

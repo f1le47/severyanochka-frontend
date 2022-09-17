@@ -1,0 +1,58 @@
+@import 'variables.scss';
+
+.navbar {
+  padding: 8px 16px;
+  .topLine {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .logo {
+      display: flex;
+      align-items: center;
+      &__icon {
+        width: 39px;
+        height: 32px;
+      }
+    }
+    .navString {
+      padding: 8px;
+      display: flex;
+      align-items: center;
+      border: 1px solid $secondary;
+      border-radius: 4px;
+      &__input {
+        width: 203px;
+        height: 24px;
+        border: none;
+        outline: none;
+        font-family: $text;
+        font-weight: $w-text-regular;
+        font-size: $text-s;
+        color: $surface-text;
+        caret-color: $surface-text;
+        &::placeholder {
+          color: $hard;
+          caret-color: $hard;
+        }
+        &:focus {
+          border: none;
+        }
+      }
+      &__img {
+        cursor: pointer;
+      }
+    }
+  }
+  .bottomLine {
+    padding: 8px 16px;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    background-color: $surface;
+  }
+}

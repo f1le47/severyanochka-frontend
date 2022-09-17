@@ -46,18 +46,20 @@ const BasketItem = ({basketProduct}: IBasketItem) => {
           )}
         </div>
       </div>
-      <div className={s.amountBtns}>
-        <MinusBtn onClick={handleMinus} className={s.minusBtn} />
-        <span className={s.amount}>{amount}</span>
-        <PlusBtn onClick={handlePlus} className={s.plusBtn} />
-      </div>
-      <div className={s.totalPrice}>
-        {discount && (
-          <span className={s.totalPrice__bold}>{formattingPrice(Math.floor((discount.priceWithCard * amount) * 100) / 100)}</span>
-        )}
-        <span className={discount ? s.totalPrice__crossout : `${s.totalPrice__crossout} ${s.totalPrice__crossout_bold}`}>
-          {formattingPrice(Math.floor((price * amount) * 100) / 100)}
-        </span>
+      <div className={s.priceAndAmount}>
+        <div className={s.amountBtns}>
+          <MinusBtn onClick={handleMinus} className={s.minusBtn} />
+          <span className={s.amount}>{amount}</span>
+          <PlusBtn onClick={handlePlus} className={s.plusBtn} />
+        </div>
+        <div className={s.totalPrice}>
+          {discount && (
+            <span className={s.totalPrice__bold}>{formattingPrice(Math.floor((discount.priceWithCard * amount) * 100) / 100)}</span>
+          )}
+          <span className={discount ? s.totalPrice__crossout : `${s.totalPrice__crossout} ${s.totalPrice__crossout_bold}`}>
+            {formattingPrice(Math.floor((price * amount) * 100) / 100)}
+          </span>
+        </div>
       </div>
     </div>
   )

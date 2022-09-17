@@ -3,7 +3,6 @@ import { IProducts } from './IProducts'
 import s from './Products.module.scss'
 import {ReactComponent as Xmark} from 'assets/img/xmark.svg'
 import Pagination from './Pagination/Pagination'
-import { v4 } from 'uuid'
 
 const Products = ({
   products, 
@@ -53,9 +52,7 @@ const Products = ({
       </div>
       <div className={s.cards}>
         {products.map((product) => (
-          <div key={v4()} className={s.card}>
             <Card product={product} />
-          </div>
         ))}
       </div>
       {items > 0 && (

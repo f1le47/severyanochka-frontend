@@ -18,7 +18,6 @@
       }
       &__name {
         margin-right: 23.5px;
-        width: 85px;
         font-family: $text;
         font-weight: $w-text-regular;
         font-size: $text-s;
@@ -43,4 +42,24 @@
     font-size: $text-s;
     color: $primary-text
   }
+}
+
+@media only screen and (max-width: 1230px) {
+  .profileLine {
+    &Info {
+      &__img {
+        margin-right: 0;
+      }
+      &__name {
+        display: none;
+      }
+    }
+    &__mark {
+      display: none;
+    }
+  }
+}
+
+@media only screen and (max-width: 992px) {
+
 }

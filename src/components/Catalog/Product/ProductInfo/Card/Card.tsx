@@ -44,18 +44,20 @@ const Card = ({product}: ICard) => {
 
   return (
     <div className={s.card}>
-      <div className={s.miniatures}>
-        <img src={imgSrc} alt="#" className={s.miniature} />
-        <img src={imgSrc} alt="#" className={s.miniature} />
-        <img src={imgSrc} alt="#" className={s.miniature} />
-        <img src={imgSrc} alt="#" className={s.miniature} />
-        <img src={imgSrc} alt="#" className={s.miniature} />
-      </div>
-      <div className={s.productImg}>
-        <img src={imgSrc} alt="" className={s.img} />
-        {!!discount && (
-          <span className={s.discount}>{`-${discount.discount}%`}</span>
-        )}
+      <div className={s.images}>
+        <div className={s.miniatures}>
+          <img src={imgSrc} alt="#" className={s.miniature} />
+          <img src={imgSrc} alt="#" className={s.miniature} />
+          <img src={imgSrc} alt="#" className={s.miniature} />
+          <img src={imgSrc} alt="#" className={s.miniature} />
+          <img src={imgSrc} alt="#" className={s.miniature} />
+        </div>
+        <div className={s.productImg}>
+          <img src={imgSrc} alt="" className={s.img} />
+          {!!discount && (
+            <span className={s.discount}>{`-${discount.discount}%`}</span>
+          )}
+        </div>
       </div>
       <div className={s.cardInfo}>
         <div className={s.prices}>

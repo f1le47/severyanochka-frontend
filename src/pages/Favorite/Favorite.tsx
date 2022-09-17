@@ -23,6 +23,8 @@ const Favorite = () => {
   const [countRange, setCountRange] = useState([0, 250])
   const [currentCategory, setCurrentCategory] = useState<null | CategoryType>(null)
 
+  const screenWidth = window.screen.width
+
   useEffect(() => {
     getFavoriteProducts({page: 1, amount: 6})
     getFavoriteCategories()

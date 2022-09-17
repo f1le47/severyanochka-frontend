@@ -55,11 +55,25 @@
       line-height: 24px;
       color: $surface-text;
       cursor: pointer;
+      transition: color .16s ease;
       &:last-child {
         margin-bottom: 0;
       }
       &:hover {
         color: $primary;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1230px) {
+  .catalog {
+    .btn {
+      .burger {
+        margin-right: 0;
+      }
+      &__text {
+        display: none;
       }
     }
   }

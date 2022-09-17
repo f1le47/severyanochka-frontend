@@ -3,43 +3,46 @@
 .card {
   margin-bottom: 120px;
   display: flex;
-  .miniatures {
-    margin-right: 16px;
+  .images {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    .miniature {
-      width: 64px;
-      height: 86px;
-      object-fit: contain;
-      background-color: #fff;
-      border-radius: 4px;
-      box-shadow: $shadow-xs;
+    .miniatures {
+      margin-right: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .miniature {
+        width: 64px;
+        height: 86px;
+        object-fit: contain;
+        background-color: #fff;
+        border-radius: 4px;
+        box-shadow: $shadow-xs;
+      }
     }
-  }
-  .productImg {
-    margin-right: 40px;
-    position: relative;
-    .img {
-      width: 504px;
-      height: 496px;
-      object-fit: contain;
-      background-color: #fff;
-      border-radius: 4px;
-      box-shadow: $shadow-xs;
-    }
-    .discount {
-      padding: 4px 8px;
-      top: 20px;
-      right: 20px;  
-      position: absolute;
-      font-family: $text;
-      font-weight: $w-text-regular;
-      font-size: $text-s;
-      line-height: 24px;
-      color: $primary-text;
-      background-color: $primary;
-      border-radius: 4px;
+    .productImg {
+      margin-right: 40px;
+      position: relative;
+      .img {
+        width: 504px;
+        height: 496px;
+        object-fit: contain;
+        background-color: #fff;
+        border-radius: 4px;
+        box-shadow: $shadow-xs;
+      }
+      .discount {
+        padding: 4px 8px;
+        top: 20px;
+        right: 20px;  
+        position: absolute;
+        font-family: $text;
+        font-weight: $w-text-regular;
+        font-size: $text-s;
+        line-height: 24px;
+        color: $primary-text;
+        background-color: $primary;
+        border-radius: 4px;
+      }
     }
   }
   .cardInfo {
@@ -208,6 +211,62 @@
         &:nth-child(2n) {
           background-color: transparent;
         }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .card {
+    margin-bottom: 100px;
+    .images {
+      .miniatures {
+        height: 248px;
+        .miniature {
+          height: 36.8px;
+        }
+      }
+      .productImg {
+        .img {
+          width: 272px;
+          height: 248px;
+        }
+        .discount {
+          top: 10px;
+          right: 10px;  
+        }
+      }
+    }
+    .cardInfo {
+      .prices {
+        .default {
+          &__price {
+            font-size: $text-m;
+          }
+        }
+        .withCard {
+          &__price {
+            align-self: end;
+            font-size: $text-header-s;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .card {
+    flex-direction: column;
+    .images {
+      justify-content: space-between;
+      .miniatures {
+        .miniature {
+          width: 72px;
+        }
+      }
+      .productImg {
+        margin-right: 0;
       }
     }
   }

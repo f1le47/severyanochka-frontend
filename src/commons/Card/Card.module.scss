@@ -6,7 +6,8 @@
   background-color: #fff;
   border-radius: 4px;
   box-shadow: $shadow-xs;
-  width: 272px;
+  // width: 272px;
+  transition: box-shadow .16s ease-in-out;
   &:hover {
     box-shadow: $shadow-primary-m;
   }
@@ -21,7 +22,7 @@
     position: relative;
     display: flex;
     justify-content: center;
-    width: 272px;
+    // width: 272px;
     height: 160px;
     .favorite {
       padding: 4px;
@@ -64,6 +65,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      height: 45px;
       .withCard {
         display: flex;
         flex-direction: column;
@@ -104,6 +106,7 @@
       font-weight: $w-text-regular;
       font-size: $text-s;
       line-height: 24px;
+      max-width: 100%;
       color: $surface-text;
     }
     .rating {
@@ -122,6 +125,7 @@
       width: 100%;
       cursor: pointer;
       outline: none;
+      transition: background-color .16s, color .16s, border-color .16s ease-in-out;
     }
     .regulationBtns {
       padding: 8px;
@@ -145,6 +149,29 @@
       .plusBtn {
         fill: $secondary-text;
         cursor: pointer;
+      }
+    }
+  }
+}
+
+// @media only screen and (max-width: 992px) {
+//   .card {
+//     width: 224px;
+//     .image {
+//       width: 224px;
+//     }
+//   }
+// }
+
+@media only screen and (max-width: 768px) {
+  .card {
+    // width: 160px;
+    // .image {
+    //   width: 160px;
+    // }
+    .block {
+      .productName {
+        // height: 90px;
       }
     }
   }

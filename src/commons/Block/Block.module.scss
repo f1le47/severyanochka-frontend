@@ -6,7 +6,7 @@
     margin-bottom: 0;
   }
   .title {
-    margin: 0;
+    margin-bottom: 40px;
     font-family: $text-header;
     font-weight: $w-text-bold;
     font-size: $text-header-m;
@@ -14,3 +14,25 @@
     color: $surface-text;
   }
 }
+
+@media only screen and (max-width: 992px) {
+  .block {
+    margin-bottom: 100px;
+    .title {
+      margin-bottom: 16px;
+      font-size: $text-header-s;
+      line-height: 36px;
+    }
+  }
+}
+
+// @media only screen and (max-width: 768px) {
+//   .block {
+//     display: flex;
+//     flex-direction: column;
+//     // align-items: center;
+//     .title {
+//       align-self: start;
+//     }
+//   }
+// }

@@ -84,3 +84,13 @@
     }
   }
 }
+
+@media only screen and (max-width: 992px) {
+  .productNav {
+    &String {
+      &__input {
+        width: 266px;
+      }
+    }
+  }
+}

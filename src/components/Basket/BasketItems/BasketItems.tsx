@@ -9,9 +9,7 @@ const BasketItems = ({basketProducts}: IBasketItems) => {
       {basketProducts.length > 0 ?
       (basketProducts.map(basketProduct => {
         return (
-          <div className={s.basketItem}>
-            <BasketItem basketProduct={basketProduct} />
-          </div>
+          <BasketItem basketProduct={basketProduct} />
         )
       }))
       :

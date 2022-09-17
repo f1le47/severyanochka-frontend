@@ -1,10 +1,7 @@
 @import 'variables.scss';
 
 .card {
-  margin-right: 60px;
   padding: 10px;
-  width: 876px;
-  height: 72px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -24,7 +21,6 @@
     }
   }
   .info {
-    width: 536px;
     flex-direction: column;
     .name {
       font-family: $text;
@@ -92,52 +88,77 @@
       }
     }
   }
-  .amountBtns {
-    margin-right: 16px;
-    padding: 8px;
+  .priceAndAmount {
     display: flex;
     align-items: center;
-    background-color: $secondary;
-    border-radius: 4px;
-    .minusBtn {
-      fill: $secondary-text;
-      cursor: pointer;
+    .amountBtns {
+      margin-right: 16px;
+      padding: 8px;
+      display: flex;
+      align-items: center;
+      background-color: $secondary;
+      border-radius: 4px;
+      .minusBtn {
+        fill: $secondary-text;
+        cursor: pointer;
+      }
+      .amount {
+        margin: 0 8px;
+        font-family: $text;
+        font-weight: $w-text-regular;
+        font-size: $text-s;
+        line-height: 24px;
+        color: $secondary-text;
+      }
+      .plusBtn {
+        fill: $secondary-text;
+        cursor: pointer;
+      }
     }
-    .amount {
-      margin: 0 8px;
-      font-family: $text;
-      font-weight: $w-text-regular;
-      font-size: $text-s;
-      line-height: 24px;
-      color: $secondary-text;
-    }
-    .plusBtn {
-      fill: $secondary-text;
-      cursor: pointer;
+    .totalPrice {
+      display: flex;
+      flex-direction: column;
+      align-items: end;
+      &__bold {
+        font-family: $text-bold;
+        font-weight: $w-text-bold;
+        font-size: $text-bold-m;
+        line-height: 27px;
+        color: $surface-text;
+      }
+      &__crossout {
+        font-family: $text-bold;
+        font-weight: $w-text-regular;
+        font-size: $text-bold-s;
+        line-height: 24px;
+        color: $hard;
+        text-decoration-line: line-through;
+        &_bold {
+          font-weight: $w-text-bold;
+          color: $surface-text;
+          text-decoration: none;
+        }
+      }
     }
   }
-  .totalPrice {
-    display: flex;
-    flex-direction: column;
-    align-items: end;
-    &__bold {
-      font-family: $text-bold;
-      font-weight: $w-text-bold;
-      font-size: $text-bold-m;
-      line-height: 27px;
-      color: $surface-text;
+}
+
+@media only screen and (max-width: 992px) {
+  .card {
+    padding-right: 4px;
+    padding-left: 0;
+    .info {
+      .name {
+        margin-bottom: 10px;
+      }
     }
-    &__crossout {
-      font-family: $text-bold;
-      font-weight: $w-text-regular;
-      font-size: $text-bold-s;
-      line-height: 24px;
-      color: $hard;
-      text-decoration-line: line-through;
-      &_bold {
-        font-weight: $w-text-bold;
-        color: $surface-text;
-        text-decoration: none;
+    .priceAndAmount {
+      flex-direction: column;
+      .amountBtns {
+        margin-right: 0;
+      }
+      .totalPrice {
+        align-self: end;
       }
     }
   }

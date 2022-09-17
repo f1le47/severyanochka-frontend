@@ -1,6 +1,6 @@
 import s from './Filter.module.scss'
 import inputLine from 'assets/img/input-line.svg'
-import { useEffect, useState, useTransition } from 'react'
+import { useEffect, useState } from 'react'
 import { Box, Slider } from '@material-ui/core'
 import IosSwitchMaterialUi from 'ios-switch-material-ui'
 import { IFilter } from './IFilter'
@@ -10,6 +10,10 @@ const Filter = ({setCountRange, countRange, categories, minPrice, maxPrice, hand
 
   const [range, setRange] = useState([minPrice, maxPrice])
   const [isStock, setIsStock] = useState(true)
+
+  const screenWidth = window.screen.width
+  const checkForIsOpen = screenWidth > 992 ? true : false
+  const [isOpen, setIsOpen] = useState(checkForIsOpen) // BOOL ALWAYS TRUE FOR SCREEN WIDTH > 992
 
   useEffect(() => {
     setRange([minPrice, maxPrice])
@@ -39,8 +43,19 @@ const Filter = ({setCountRange, countRange, categories, minPrice, maxPrice, hand
     setRange([range[0], currentValue])
   }
 
+  const handleClose = () => {
+    setIsOpen(false)
+  }
+  const handleOpen = () => {
+    setIsOpen(true)
+  }
+
   return (
-    <div className={s.filter}>
+    isOpen ? (
+      <div 
+        className={s.filter}
+        onClick={handleClose}
+      >
       <span className={s.blockName}>Фильтр</span>
       <div className={s.count}>
         <div className={s.countHeader}>
@@ -104,6 +119,16 @@ const Filter = ({setCountRange, countRange, categories, minPrice, maxPrice, hand
       </div>
       <button className={s.apply}>Применить</button>
     </div>
+    ) 
+    :
+    (
+      <span 
+        className={s.openBtn}
+        onClick={handleOpen}
+      >
+        Фильтр
+      </span>
+    )
   )
 }
 

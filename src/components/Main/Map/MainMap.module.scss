@@ -18,6 +18,7 @@
       border-radius: 4px;
       outline: none;
       cursor: pointer;
+      transition: color .16s, background-color .16s ease-in-out;
       &_active {
         color: $secondary-text;
         background-color: $secondary;
@@ -25,6 +26,19 @@
       &:hover {
         color: $secondary-text;
         background-color: $secondary;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .map {
+    .tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+      .tab {
+        margin-right: 0;
       }
     }
   }

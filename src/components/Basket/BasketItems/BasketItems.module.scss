@@ -1,15 +1,11 @@
 @import 'variables.scss';
 
 .basketItems {
-  display: flex;
-  flex-direction: column;
-  width: 876px;
-  .basketItem {
-    margin-bottom: 24px;
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
+  margin-right: 60px;
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 32px;
+  width: 100%;  
   .empty {
     align-self: center;
     font-family: $text;
@@ -17,5 +13,17 @@
     font-size: $text-m;
     line-height: 28px;
     color: $hard;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .basketItems {
+    margin-right: 36px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .basketItems {
+    margin-bottom: 32px;
   }
 }

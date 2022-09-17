@@ -5,7 +5,7 @@
   top: 48px;
   left: 10px;
   position: absolute;
-  z-index: 1000;
+  z-index: 2;
   background-color: #fff;
   &Btn {
     height: 32px;
@@ -18,5 +18,11 @@
       font-size: $text-s;
       color: $surface-text;
     }
+  }
+}
+
+@media only screen and (max-width: 1230px) {
+  .profileDrop {
+    left: -102px;
   }
 }

@@ -23,6 +23,7 @@
         background-image: linear-gradient(transparent 50%, $secondary);
         border-radius: 4px;
         opacity: 0.8;
+        transition: background-image .16s ease-in-out;
       }
       .img {
         width: 272px;

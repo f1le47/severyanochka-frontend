@@ -28,6 +28,7 @@
       height: 24px;
       width: 24px;
       fill: $surface-text;
+      transition: fill .16s ease-in;
       &_active {
         fill: $primary;
       }
@@ -37,6 +38,7 @@
       font-weight: $w-text-regular;
       font-size: $text-xs;
       color: $surface-text;
+      transition: color .16s ease-in;
       &_active {
         color: $primary;
       }

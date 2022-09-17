@@ -110,3 +110,24 @@
     cursor: pointer;
   }
 }
+
+.openBtn {
+  margin-bottom: 36px;
+  padding: 4px 8px;
+  width: 112px; 
+  text-align: center;
+  font-family: $text;
+  font-weight: $w-text-regular;
+  font-size: $text-xs;
+  line-height: 18px;
+  color: $secondary-text;
+  background-color: $secondary;
+  border-radius: 4px;
+}
+
+@media only screen and (max-width: 992px) {
+  .filter {
+    margin-right: 0;
+    margin-bottom: 32px;
+  }
+}

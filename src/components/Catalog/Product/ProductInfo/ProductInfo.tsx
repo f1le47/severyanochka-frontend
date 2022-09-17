@@ -37,12 +37,12 @@ const ProductInfo = ({product, ratings}: IProductInfo) => {
           commonRating={product.rating}
         />
       </div>
-      <Category
+      {/* <Category
           products={discountProducts}
           categoryName="Акции"
           categoryLink="/stock"
           categoryButton="Все акции"
-        />
+      /> */}
     </div>
   )
 }

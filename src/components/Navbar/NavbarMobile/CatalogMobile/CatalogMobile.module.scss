@@ -1,0 +1,46 @@
+@import 'variables.scss';
+
+.catalog {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .burger {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__icon {
+      margin-bottom: 4px;
+      fill: $surface-text;
+    }
+    &__text {
+      font-family: $text;
+      font-weight: $w-text-regular;
+      font-size: $m-text-xs;
+      line-height: 12px;
+      color: $surface-text;
+    }
+  }
+  .categories {
+    left: -15px;
+    bottom: 33px;
+    position: absolute;
+    z-index: 1;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba($surface, 0.8);
+    .category {
+      padding: 10px;
+      font-family: $text;
+      font-weight: $w-text-regular;
+      font-size: $m-text-m;
+      color: $surface-text;
+      text-decoration: none;
+      &:first-child {
+        padding-top: 100px;
+      }
+    }
+  }
+}

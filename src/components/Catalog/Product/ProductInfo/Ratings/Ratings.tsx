@@ -5,6 +5,7 @@ import Comment from './Comment/Comment'
 import { IRatings } from './IRatings'
 import InputRate from './InputRate/InputRate'
 import { useAppSelector } from 'hooks/redux'
+import { useEffect } from 'react'
 
 const Ratings = ({ratings, commonRating, productId}: IRatings) => {
 
@@ -16,8 +17,15 @@ const Ratings = ({ratings, commonRating, productId}: IRatings) => {
       isAppreciated = true
     }
   })
-  
 
+  useEffect(() => {
+    five = 0
+    four = 0
+    three = 0
+    two = 0
+    one = 0
+  }, [ratings])
+  
   let five = 0
   let four = 0
   let three = 0

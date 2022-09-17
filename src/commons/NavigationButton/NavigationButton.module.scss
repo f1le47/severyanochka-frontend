@@ -1,0 +1,25 @@
+@import 'variables.scss';
+
+.button {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  align-items: center;
+  .icon {
+    margin-bottom: 4px;
+    fill: $surface-text;
+    &_active {
+      fill: $primary;
+    }
+  }
+  .text {
+    font-family: $text;
+    font-weight: $w-text-regular;
+    font-size: $m-text-xs;
+    line-height: 12px;
+    color: $surface-text;
+    &_active {
+      color: $primary;
+    }
+  }
+}
