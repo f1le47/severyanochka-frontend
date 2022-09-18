@@ -1,3 +1,4 @@
+import { notificationSlice } from './../../reducers/notificationSlice';
 import FavoriteApi from "http/favoriteApi"
 import { favoriteSlice } from "redux/reducers/favoriteSlice"
 import { AppDispatch } from "redux/store"
@@ -11,13 +12,22 @@ export const favoriteActionCreators = {
       const response = await FavoriteApi.getFavoriteProducts({page, amount, min, max, categoryId})
       dispatch(favoriteSlice.actions.setFavoriteProducts(response.favoriteProducts))
       dispatch(favoriteSlice.actions.setFavoriteItems(response.amountFavoriteProducts))
+      dispatch(favoriteSlice.actions.setLoaded())
     } catch(e) {
-      dispatch(favoriteSlice.actions.setError(e.response.data.message))
+      dispatch(notificationSlice.actions.setError(e.response.data.message))
+      dispatch(favoriteSlice.actions.setLoaded())
     } 
   },
   getFavoriteProductIds: () => async (dispatch: AppDispatch) => {
-    const response = await FavoriteApi.getFavoriteProductIds()
-    dispatch(favoriteSlice.actions.setFavoriteProductIds(response.favoriteIds))
+    try {
+      dispatch(favoriteSlice.actions.setLoading())
+      const response = await FavoriteApi.getFavoriteProductIds()
+      dispatch(favoriteSlice.actions.setFavoriteProductIds(response.favoriteIds))
+      dispatch(favoriteSlice.actions.setLoaded())
+    } catch(e) {
+      dispatch(notificationSlice.actions.setError(e.response.data.message))
+      dispatch(favoriteSlice.actions.setLoaded())
+    }
   },
   addFavoriteProduct: ({productId}: IAddFavoriteProduct) => async (dispatch: AppDispatch) => {
     try {
@@ -26,8 +36,10 @@ export const favoriteActionCreators = {
       if (response.status === 200) {
         dispatch(favoriteSlice.actions.addFavoriteId(productId))
       }
+      dispatch(favoriteSlice.actions.setLoaded())
     } catch(e) {
-      dispatch(favoriteSlice.actions.setError(e.response.data.message))
+      dispatch(notificationSlice.actions.setError(e.response.data.message))
+      dispatch(favoriteSlice.actions.setLoaded())
     }
   },
   removeFavoriteProduct: ({productId}: IRemoveFavoriteProduct) => async (dispatch: AppDispatch) => {
@@ -37,8 +49,10 @@ export const favoriteActionCreators = {
       if (response.status === 200) {
         dispatch(favoriteSlice.actions.removeFavoriteId(productId))
       }
+      dispatch(favoriteSlice.actions.setLoaded())
     } catch(e) {
-      dispatch(favoriteSlice.actions.setError(e.response.data.message))
+      dispatch(notificationSlice.actions.setError(e.response.data.message))
+      dispatch(favoriteSlice.actions.setLoaded())
     }
   },
   getFavoriteCategories: () => async (dispatch: AppDispatch) => {
@@ -46,8 +60,10 @@ export const favoriteActionCreators = {
       dispatch(favoriteSlice.actions.setLoading())
       const response = await FavoriteApi.getFavoriteCategories()
       dispatch(favoriteSlice.actions.setFavoriteCategories(response.favoriteCategories))
+      dispatch(favoriteSlice.actions.setLoaded())
     } catch(e) {
-      dispatch(favoriteSlice.actions.setError(e.response.data.message))
+      dispatch(notificationSlice.actions.setError(e.response.data.message))
+      dispatch(favoriteSlice.actions.setLoaded())
     }
   },
   getFavoriteMinMaxPrices: () => async (dispatch: AppDispatch) => {
@@ -55,11 +71,10 @@ export const favoriteActionCreators = {
       dispatch(favoriteSlice.actions.setLoading())
       const response = await FavoriteApi.getFavoriteMinMaxPrices()
       dispatch(favoriteSlice.actions.setFavoriteMinMaxPrices([response.minPrice, response.maxPrice]))
+      dispatch(favoriteSlice.actions.setLoaded())
     } catch(e) {
-      dispatch(favoriteSlice.actions.setError(e.response.data.message))
+      dispatch(notificationSlice.actions.setError(e.response.data.message))
+      dispatch(favoriteSlice.actions.setLoaded())
     }
-  },
-  clearLatestFavoriteError: () => async (dispatch: AppDispatch) => {
-    dispatch(favoriteSlice.actions.clearLatestFavoriteError())
   }
 }

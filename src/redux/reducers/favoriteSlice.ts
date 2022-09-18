@@ -10,7 +10,6 @@ interface IFavoriteSlice {
   favoriteCategories: Array<CategoryType>
   minPrice: number
   maxPrice: number
-  errors: Array<string>
 }
 
 const initialState: IFavoriteSlice = {
@@ -21,7 +20,6 @@ const initialState: IFavoriteSlice = {
   favoriteCategories: [],
   minPrice: 0,
   maxPrice: 0,
-  errors: [],
 }
 
 export const favoriteSlice = createSlice({
@@ -31,9 +29,8 @@ export const favoriteSlice = createSlice({
     setLoading(state) {
       state.isLoading = true;
     },
-    setError(state, action: PayloadAction<string>) {
-      state.isLoading = false
-      state.errors = [action.payload, ...state.errors]
+    setLoaded(state) {
+      state.isLoading = false;
     },
     setFavoriteProducts(state, action: PayloadAction<Array<ProductType>>) {
       state.favoriteProducts = action.payload
@@ -56,13 +53,6 @@ export const favoriteSlice = createSlice({
     setFavoriteMinMaxPrices(state, action: PayloadAction<Array<number>>) {
       state.minPrice = action.payload[0]
       state.maxPrice = action.payload[1]
-    },
-    clearLatestFavoriteError(state) {
-      if (state.errors.length > 0) {
-        const returnArr = [...state.errors]
-        returnArr.pop()
-        state.errors = returnArr
-      }
     },
   }
 })

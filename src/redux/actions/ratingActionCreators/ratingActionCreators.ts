@@ -1,3 +1,4 @@
+import { notificationSlice } from './../../reducers/notificationSlice';
 import ratingApi from 'http/ratingApi';
 import {ratingSlice} from 'redux/reducers/ratingSlice';
 import { AppDispatch } from 'redux/store';
@@ -8,27 +9,43 @@ export const ratingActionCreators = {
       dispatch(ratingSlice.actions.setLoading())
       const response = await ratingApi.getRating({productId})
       dispatch(ratingSlice.actions.setRatings(response.ratings))
-    } catch(e) {}
+      dispatch(ratingSlice.actions.setLoaded())
+    } catch(e) {
+      dispatch(notificationSlice.actions.setError(e.response.data.message))
+      dispatch(ratingSlice.actions.setLoaded())
+    }
   },
   addRating: ({comment, productId, rate}: IAddRating) => async (dispatch: AppDispatch) => {
     try {
       dispatch(ratingSlice.actions.setLoading())
       const response = await ratingApi.addRating({productId, comment, rate})
       dispatch(ratingSlice.actions.addRating(response.rating))
-    } catch(e) {}
+      dispatch(ratingSlice.actions.setLoaded())
+    } catch(e) {
+      dispatch(notificationSlice.actions.setError(e.response.data.message))
+      dispatch(ratingSlice.actions.setLoaded())
+    }
   },
   changeRating: ({comment, productId, rate}: IChangeRating) => async (dispatch: AppDispatch) => {
     try {
       dispatch(ratingSlice.actions.setLoading())
       const response = await ratingApi.changeRating({productId, comment, rate})
       dispatch(ratingSlice.actions.changeRating(response.rating))
-    } catch(e) {}
+      dispatch(ratingSlice.actions.setLoaded())
+    } catch(e) {
+      dispatch(notificationSlice.actions.setError(e.response.data.message))
+      dispatch(ratingSlice.actions.setLoaded())
+    }
   },
   deleteRating: ({productId}: IDeleteRating) => async (dispatch: AppDispatch) => {
     try {
       dispatch(ratingSlice.actions.setLoading())
       const response = await ratingApi.deleteRating({productId})
       dispatch(ratingSlice.actions.deleteRating(productId))
-    } catch(e) {}
+      dispatch(ratingSlice.actions.setLoaded())
+    } catch(e) {
+      dispatch(notificationSlice.actions.setError(e.response.data.message))
+      dispatch(ratingSlice.actions.setLoaded())
+    }
   }
 }

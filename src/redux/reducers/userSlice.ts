@@ -7,8 +7,6 @@ interface IUserState {
   user: UserType
   savingsCard: SavingsCardType
   isLoading: boolean
-  errors: Array<string>
-  successes: Array<string>
 }
 
 const initialState: IUserState = {
@@ -31,8 +29,6 @@ const initialState: IUserState = {
     userId: 0
   },
   isLoading: false,
-  errors: [],
-  successes: []
 }
 
 export const userSlice = createSlice({
@@ -42,21 +38,13 @@ export const userSlice = createSlice({
     setLoading(state) {
       state.isLoading = true
     },
-    setSuccess(state, action: PayloadAction<string>) {
+    setLoaded(state) {
       state.isLoading = false
-      state.successes = [action.payload, ...state.successes]
-    },
-    setError(state, action: PayloadAction<string>) {
-      state.isLoading = false
-      state.errors = [action.payload, ...state.errors]
     },
     setAuth(state, action: PayloadAction<UserType>) {
       state.isLoading = false
       state.isAuth = true
       state.user = action.payload
-    },
-    setWithoutError(state) {
-      state.isLoading = false
     },
     setUserNullify(state) {
       state.isAuth = false
@@ -76,20 +64,6 @@ export const userSlice = createSlice({
     },
     setSavingsCard(state, action: PayloadAction<SavingsCardType>) {
       state.savingsCard = action.payload;
-    },
-    clearLatestError(state) {
-      if (state.errors.length > 0) {
-        const returnArr = [...state.errors]
-        returnArr.pop()
-        state.errors = returnArr
-      }
-    },
-    clearLatestSuccess(state) {
-      if (state.successes.length > 0) {
-        const returnArr = [...state.successes]
-        returnArr.pop()
-        state.successes = returnArr
-      }
     }
   }
 })

@@ -21,6 +21,9 @@ export const basketSlice = createSlice({
     setLoading(state) {
       state.isLoading = true
     },
+    setLoaded(state) {
+      state.isLoading = false
+    },
     setBasketProducts(state, action: PayloadAction<Array<BasketProductType>>) {
       state.basketProducts = action.payload
     },

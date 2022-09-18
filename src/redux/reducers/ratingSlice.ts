@@ -18,6 +18,9 @@ export const ratingSlice = createSlice({
     setLoading(state) {
       state.isLoading = true
     },
+    setLoaded(state) {
+      state.isLoading = false
+    },
     setRatings(state, action: PayloadAction<Array<RatingType>>) {
       state.ratings = action.payload
     },

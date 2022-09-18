@@ -1,3 +1,4 @@
+import { notificationSlice } from './../../reducers/notificationSlice';
 import { IAddBasketProduct } from 'types/http/IBasketApi';
 import { IRemoveBasketProduct } from './../../../types/http/IBasketApi';
 import basketApi from 'http/basketApi';
@@ -9,21 +10,36 @@ export const basketActionCreators = {
       dispatch(basketSlice.actions.setLoading())
       const response = await basketApi.getBasketProducts()
       dispatch(basketSlice.actions.setBasketProducts(response.basketProducts))
-    } catch(e) {}
+      dispatch(notificationSlice.actions.setSuccess(response.message))
+      dispatch(basketSlice.actions.setLoaded())
+    } catch(e) {
+      dispatch(notificationSlice.actions.setError(e.response.data.message))
+      dispatch(basketSlice.actions.setLoaded())
+    }
   },
   addBasketProduct: ({productId}: IAddBasketProduct) => async (dispatch: AppDispatch) => {
     try {
       dispatch(basketSlice.actions.setLoading())
       const response = await basketApi.addBasketProduct({productId})
       dispatch(basketSlice.actions.addRemBasketProduct(response.basketProduct))
-    } catch(e) {}
+      dispatch(notificationSlice.actions.setSuccess(response.message))
+      dispatch(basketSlice.actions.setLoaded())
+    } catch(e) {
+      dispatch(notificationSlice.actions.setError(e.response.data.message))
+      dispatch(basketSlice.actions.setLoaded())
+    }
   },
   addNewBasketProduct: ({productId}: IAddBasketProduct) => async (dispatch: AppDispatch) => {
     try {
       dispatch(basketSlice.actions.setLoading())
       const response = await basketApi.addBasketProduct({productId})
       dispatch(basketSlice.actions.addNewBasketProduct(response.basketProduct))
-    } catch(e) {}
+      dispatch(notificationSlice.actions.setSuccess(response.message))
+      dispatch(basketSlice.actions.setLoaded())
+    } catch(e) {
+      dispatch(notificationSlice.actions.setError(e.response.data.message))
+      dispatch(basketSlice.actions.setLoaded())
+    }
   },
   removeBasketProduct: ({productId}: IRemoveBasketProduct) => async (dispatch: AppDispatch) => {
     try {
@@ -34,13 +50,23 @@ export const basketActionCreators = {
       } else {
         dispatch(basketSlice.actions.fullRemoveFromBasket(productId))
       }
-    } catch(e) {}
+      dispatch(notificationSlice.actions.setSuccess(response.message))
+      dispatch(basketSlice.actions.setLoaded())
+    } catch(e) {
+      dispatch(notificationSlice.actions.setError(e.response.data.message))
+      dispatch(basketSlice.actions.setLoaded())
+    }
   },
   getAmountBasketProducts: () => async (dispatch: AppDispatch) => {
     try {
       dispatch(basketSlice.actions.setLoading())
       const response = await basketApi.getAmountBasketProducts()
       dispatch(basketSlice.actions.setAmountBasketProducts(response.amountBasketProducts))
-    } catch(e) {}
+      dispatch(notificationSlice.actions.setSuccess(response.message))
+      dispatch(basketSlice.actions.setLoaded())
+    } catch(e) {
+      dispatch(notificationSlice.actions.setError(e.response.data.message))
+      dispatch(basketSlice.actions.setLoaded())
+    }
   }
 }

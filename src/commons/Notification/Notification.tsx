@@ -4,16 +4,18 @@ import { INotification } from './INotification'
 import Error from './Error/Error'
 import Success from './Success/Success'
 import { useEffect } from 'react'
-import { useActions } from 'hooks/redux'
+import { useAppDispatch, useAppSelector } from 'hooks/redux'
+import {notificationSlice} from 'redux/reducers/notificationSlice'
 
-const Notification = ({errors, successes, productErrors, favoriteErrors}: INotification) => {
+const Notification = ({}: INotification) => {
 
-  const {clearLatestError, clearLatestSuccess, clearLatestProductError, clearLatestFavoriteError} = useActions()
+  const {errors, successes} = useAppSelector(state => state.notification)
+  const dispatch = useAppDispatch()
 
   useEffect(() => {
     setTimeout(() => {
       if (errors.length > 0) {
-        clearLatestError()
+        dispatch(notificationSlice.actions.clearLatestError())
       }
     }, 2000)
   }, [errors])
@@ -21,26 +23,10 @@ const Notification = ({errors, successes, productErrors, favoriteErrors}: INotif
   useEffect(() => {
     setTimeout(() => {
       if (successes.length > 0) {
-        clearLatestSuccess()
+        dispatch(notificationSlice.actions.clearLatestSuccess())
       }
     }, 2000)
   }, [successes])
-
-  useEffect(() => {
-    setTimeout(() => {
-      if (productErrors.length > 0) {
-        clearLatestProductError()
-      }
-    }, 2000)
-  }, [productErrors])
-
-  useEffect(() => {
-    setTimeout(() => {
-      if (favoriteErrors.length > 0) {
-        clearLatestFavoriteError()
-      }
-    }, 2000)
-  }, [favoriteErrors])
 
   return (
     <Modal id="notification">

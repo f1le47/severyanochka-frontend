@@ -1,23 +1,22 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import { useEffect } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { useActions, useAppSelector } from "hooks/redux";
 import Navbar from "components/Navbar/Navbar";
 import Notification from "commons/Notification/Notification";
 import Main from "pages/Main/Main";
 import './App.scss'
 import Footer from "components/Footer/Footer";
-import Favorite from "pages/Favorite/Favorite";
-import Basket from "pages/Basket/Basket";
-import Catalog from "pages/Catalog/Catalog";
 import Category from "pages/Catalog/Category/Category";
 import Product from "pages/Catalog/Category/Product/Product";
+import Loader from "commons/Loader/Loader";
+import { CircularProgress } from "@material-ui/core";
+const Favorite = lazy(() => import('pages/Favorite/Favorite'))
+const Basket = lazy(() => import('pages/Basket/Basket'))
+const Catalog = lazy(() => import('pages/Catalog/Catalog'))
 
 function App() {
 
-  const productErrors = useAppSelector(state => state.product.errors)
-  const favoriteErrors = useAppSelector(state => state.favorite.errors)
-  
-  const {isAuth, errors, successes} = useAppSelector(state => state.user)
+  const isAuth = useAppSelector(state => state.user.isAuth)
   const {
     checkAuth, 
     getFavoriteProductIds, 
@@ -25,10 +24,12 @@ function App() {
     getBasketProducts,
     getCategories
   } = useActions()
-  
+
   useEffect(() => {
     getCategories()
-
+  }, [])
+  
+  useEffect(() => {
     if (!isAuth) {
       checkAuth()
     }
@@ -42,15 +43,10 @@ function App() {
 
   return (
     <div className="App">
-      {(errors.length > 0 || successes.length > 0 || productErrors.length > 0 || favoriteErrors.length > 0) && (
-        <Notification 
-          errors={errors}
-          successes={successes}
-          productErrors={productErrors}
-          favoriteErrors={favoriteErrors}
-        />
-      )}
+      <Notification /> {/* MODAL */}
       <Navbar />
+      <Loader />
+      <Suspense fallback={<div className="loader"><CircularProgress /></div>}>
         <div className="container-for-bgc">
           <Routes>
             <Route path="/" element={ <Main /> } />
@@ -62,6 +58,7 @@ function App() {
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </div>
+      </Suspense>
       <Footer />
     </div>
   );

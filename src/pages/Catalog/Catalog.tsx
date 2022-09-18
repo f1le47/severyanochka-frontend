@@ -3,7 +3,6 @@ import Container from 'commons/Container/Container'
 import Content from 'commons/Content/Content'
 import Tiles from 'components/Catalog/Tiles/Tiles'
 import { useAppSelector } from 'hooks/redux'
-import s from './Catalog.module.scss'
 
 const Catalog = () => {
 

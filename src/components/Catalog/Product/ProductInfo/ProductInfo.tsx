@@ -5,7 +5,7 @@ import { IProductInfo } from './IProductInfo'
 import Ratings from './Ratings/Ratings'
 import { useRef } from 'react'
 import Category from 'commons/Category/Category'
-import { useAppSelector } from 'hooks/redux'
+import { useActions, useAppSelector } from 'hooks/redux'
 
 const ProductInfo = ({product, ratings}: IProductInfo) => {
 
@@ -17,6 +17,15 @@ const ProductInfo = ({product, ratings}: IProductInfo) => {
   const ratingsRef = useRef<HTMLDivElement>(null)
 
   const discountProducts = useAppSelector(state => state.product.discountProducts)
+  const {getDiscountProducts} = useActions()
+  const screenWidth = window.screen.width
+  if (discountProducts.length === 0) {
+    if (screenWidth < 992 && screenWidth > 768) {
+      getDiscountProducts({page: 1, amount: 3})
+    } else {
+      getDiscountProducts({page: 1, amount: 4})
+    }
+  }
 
   return (
     <div className={s.productInfo}>
@@ -37,12 +46,12 @@ const ProductInfo = ({product, ratings}: IProductInfo) => {
           commonRating={product.rating}
         />
       </div>
-      {/* <Category
+      <Category
           products={discountProducts}
           categoryName="Акции"
           categoryLink="/stock"
           categoryButton="Все акции"
-      /> */}
+      />
     </div>
   )
 }

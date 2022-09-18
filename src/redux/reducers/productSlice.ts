@@ -7,7 +7,6 @@ interface IProductSlice {
   discountProducts: Array<ProductType>
   latestProducts: Array<ProductType>
   product: ProductType
-  errors: Array<string>
 }
 
 const initialState: IProductSlice = {
@@ -27,7 +26,6 @@ const initialState: IProductSlice = {
     rating: 0,
     weight: 0
   },
-  errors: [],
 }
 
 export const productSlice = createSlice({
@@ -37,9 +35,8 @@ export const productSlice = createSlice({
     setLoading(state) {
       state.isLoading = true
     },
-    setError(state, action: PayloadAction<string>) {
+    setLoaded(state) {
       state.isLoading = false
-      state.errors = [action.payload, ...state.errors]
     },
     setProducts(state, action: PayloadAction<Array<ProductType>>) {
       state.products = action.payload
@@ -52,14 +49,7 @@ export const productSlice = createSlice({
     },
     setProduct(state, action: PayloadAction<ProductType>) {
       state.product = action.payload
-    },
-    clearLatestProductError(state) {
-      if (state.errors.length > 0) {
-        const returnArr = [...state.errors]
-        returnArr.pop()
-        state.errors = returnArr
-      }
-    },
+    }
   }
 })
 
