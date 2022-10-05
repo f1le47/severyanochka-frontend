@@ -1,6 +1,9 @@
 const favorite = 'favorite'
 const basket = 'basket'
 const catalog = 'catalog'
+const about = 'about'
+const contacts = 'contacts'
+const jobs = 'jobs'
 
 function formattingPathText(path: string) {
   switch(path) {
@@ -12,6 +15,15 @@ function formattingPathText(path: string) {
     }
     case catalog: {
       return 'Каталог'
+    }
+    case about: {
+      return 'О компании'
+    }
+    case contacts: {
+      return 'Контакты'
+    }
+    case jobs: {
+      return 'Вакансии'
     }
     default: {
       return path

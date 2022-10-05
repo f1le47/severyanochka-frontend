@@ -1,0 +1,142 @@
+@import 'variables.scss';
+
+.job {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: $surface;
+  border-radius: 4px;
+  box-shadow: $shadow-s;
+  transition: box-shadow .2s ease-in;
+  &:hover {
+    box-shadow: $shadow-primary-m;
+    & .title {
+      color: $primary;
+      text-shadow: 0 0 10px rgba($primary-muted, 1);
+    }
+    & .item__title {
+      color: $primary;
+    }
+    & .call__text {
+      color: $primary;
+    }
+  }
+  .title {
+    margin-bottom: 16px;
+    font-family: $text-bold;
+    font-weight: 700;
+    font-size: $text-bold-l;
+    line-height: 36px;
+    color: $surface-text;
+    transition: color .2s, text-shadow .2s ease-in;
+  }
+  .item {
+    margin-bottom: 16px;
+    &__title {
+      margin-bottom: 8px;
+      font-family: $text;
+      font-weight: 400;
+      font-size: $text-m;
+      line-height: 27px;
+      color: $surface-text;
+      transition: color .24s ease-in;
+    }
+    &__text {
+      max-width: 312px;
+      font-family: $text;
+      font-weight: 400;
+      font-size: $text-s;
+      line-height: 24px;
+      color: $surface-text;
+    }
+  }
+  .call {
+    &__text {
+      margin-bottom: 8px;
+      font-family: $text;
+      font-size: $text-m;
+      line-height: 27px;
+      color: $surface-text;
+      transition: color .37s ease-in;
+    }
+    .phone {
+      display: flex;
+      align-items: center;
+      .icon {
+        margin-right: 10px;
+      }
+      .number {
+        font-family: $text;
+        font-size: $text-m;
+        line-height: 27px;
+        color: $surface-text;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .job {
+    padding: 24px;
+    .title {
+      font-size: $text-m;
+      line-height: 27px;
+    }
+    .item {
+      &__title {
+        font-size: $text-s;
+        line-height: 24px;
+      }
+      &__text {
+        font-size: $text-xs;
+        line-height: 18px;
+      }
+    }
+    .call {
+      &__text {
+        font-size: $text-s;
+        line-height: 24px;
+      }
+      .phone {
+        .number {
+          font-size: $text-xs;
+          line-height: 18px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .job {
+    padding: 16px;
+    .title {
+      font-size: $m-text-bold-l;
+      line-height: 30px;
+    }
+    .item {
+      &__title {
+        font-size: $m-text-m;
+        line-height: 21px;
+      }
+      &__text {
+        font-size: $m-text-s;
+        line-height: 18px;
+      }
+    }
+    .call {
+      &__text {
+        font-size: $m-text-m;
+        line-height: 21px;
+      }
+      .phone {
+        align-items: center;
+        .number {
+          font-size: $m-text-s;
+          line-height: 18px;
+        }
+      }
+    }
+  }
+}

@@ -6,7 +6,7 @@ import MainContent from 'commons/MainContent/MainContent';
 import { useActions, useAppSelector } from 'hooks/redux';
 import { useEffect } from 'react';
 import Block from 'commons/Block/Block';
-import MainMap from 'components/Main/Map/MainMap';
+import MainMap from 'commons/Map/MainMap';
 
 const Main = () => {
   const screenWidth = window.screen.width

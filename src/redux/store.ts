@@ -6,6 +6,7 @@ import productSlice from "./reducers/productSlice";
 import userSlice from "./reducers/userSlice";
 import ratingSlice from './reducers/ratingSlice';
 import notificationSlice from './reducers/notificationSlice';
+import jobSlice from "./reducers/jobSlice";
 
 const rootReducer = combineReducers({
   user: userSlice,
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
   basket: basketSlice,
   categories: categoriesSlice,
   rating: ratingSlice,
-  notification: notificationSlice
+  notification: notificationSlice,
+  job: jobSlice
 })
 
 export const setupStore = () => {

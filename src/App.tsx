@@ -13,6 +13,9 @@ import { CircularProgress } from "@material-ui/core";
 const Favorite = lazy(() => import('pages/Favorite/Favorite'))
 const Basket = lazy(() => import('pages/Basket/Basket'))
 const Catalog = lazy(() => import('pages/Catalog/Catalog'))
+const About = lazy(() => import('pages/About/About'))
+const Contacts = lazy(() => import('pages/Contacts/Contacts'))
+const Jobs = lazy(() => import('pages/Jobs/Jobs'))
 
 function App() {
 
@@ -55,6 +58,9 @@ function App() {
             <Route path="catalog" element={<Catalog />} />
             <Route path="catalog/:categoryId" element={<Category />} />
             <Route path="catalog/:categoryId/:productId" element={<Product />} />
+            <Route path="about" element={<About />} />
+            <Route path="contacts" element={<Contacts />} />
+            <Route path="jobs" element={<Jobs />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </div>

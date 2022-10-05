@@ -22,7 +22,6 @@ export const basketActionCreators = {
       dispatch(basketSlice.actions.setLoading())
       const response = await basketApi.addBasketProduct({productId})
       dispatch(basketSlice.actions.addRemBasketProduct(response.basketProduct))
-      dispatch(notificationSlice.actions.setSuccess(response.message))
       dispatch(basketSlice.actions.setLoaded())
     } catch(e) {
       dispatch(notificationSlice.actions.setError(e.response.data.message))
@@ -49,8 +48,8 @@ export const basketActionCreators = {
         dispatch(basketSlice.actions.addRemBasketProduct(response.basketProduct))
       } else {
         dispatch(basketSlice.actions.fullRemoveFromBasket(productId))
+        dispatch(notificationSlice.actions.setSuccess(response.message)) // notification happens when completely removed
       }
-      dispatch(notificationSlice.actions.setSuccess(response.message))
       dispatch(basketSlice.actions.setLoaded())
     } catch(e) {
       dispatch(notificationSlice.actions.setError(e.response.data.message))

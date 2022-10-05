@@ -25,7 +25,7 @@ const Footer = () => {
           <div className={s.topLine}>
             <img src={footerLogo} className={s.logo} alt="logo" />
             <div className={s.links}>
-              <NavLink to="/about-company" className={s.link}>О компании</NavLink>
+              <NavLink to="/about" className={s.link}>О компании</NavLink>
               <NavLink to="/contacts" className={s.link}>Контакты</NavLink>
               <NavLink to="/jobs" className={s.link}>Вакансии</NavLink>
               <NavLink to="/articles" className={s.link}>Статьи</NavLink>

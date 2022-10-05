@@ -7,11 +7,14 @@ const MainMap = () => {
   const [activeMap, setActiveMap] = useState(1)
   const screenWidth = window.screen.width
   let mapWidth = 1208
-  if (screenWidth < 992 && screenWidth > 768) {
-    mapWidth = screenWidth - 32
-  } else if (screenWidth < 768) {
+  if (screenWidth < 1240) {
     mapWidth = screenWidth - 32
   }
+  // else if (screenWidth > 992 && screenWidth < 1218) {
+  //   mapWidth = screenWidth - 32
+  // } else if (screenWidth < 768) {
+  //   mapWidth = screenWidth - 32
+  // }
 
   return (
     <div className={s.map}>

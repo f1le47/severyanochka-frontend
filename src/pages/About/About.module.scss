@@ -1,0 +1,165 @@
+@import 'variables.scss';
+
+.about {
+  position: relative;
+  background: url('../../assets/img/about-pattern.svg') no-repeat top center;
+  .subtitle {
+    margin-bottom: 180px;
+    position: relative;
+    z-index: 1;
+    max-width: 50%;
+    font-family: $text-bold;
+    font-weight: 700;
+    font-size: $text-bold-l;
+    line-height: 36px;
+    color: $primary;
+  }
+  .illustration {
+    top: 0;
+    right: 0;
+    position: absolute;
+  }
+  .checks {
+    margin-bottom: 120px;
+    display: flex;
+    justify-content: space-between;
+    .check {
+      position: relative;
+      flex-direction: column;
+      .icon {
+        position: absolute;
+        left: -40px;
+      }
+      &__title {
+        margin-bottom: 16px;
+        font-family: $text;
+        font-size: $m-text-l;
+        line-height: 30px;
+        color: $surface-text;
+      }
+      &__description {
+        font-family: $text-bold;
+        font-weight: 700;
+        font-size: $text-bold-l;
+        line-height: 36px;
+        color: $surface-text;
+      }
+    }
+  }
+  .gratitude {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .logo {
+      margin-right: 80px;
+    }
+    &Cloud {
+      position: relative;
+      .cloudPart {
+        top: 50%;
+        left: -40px;
+        transform: translateY(-50%);
+        position: absolute;
+      }
+      &__text {
+        padding: 30px 40px;
+        font-family: $text-bold;
+        font-weight: 700;
+        font-size: $text-bold-l;
+        line-height: 36px;
+        color: $secondary;
+        background-color: $secondary-muted;
+        border-radius: 16px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .about {
+    .subtitle {
+      margin-bottom: 360px;
+      max-width: 80%;
+    }
+    .illustration {
+      top: 120px;
+    }
+    .checks {
+      margin-left: 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      row-gap: 32px;
+      .check {
+        &__title {
+          font-size: $m-text-m;
+        }
+        &__description {
+          font-size: $text-bold-m;
+        }
+      }
+    }
+    .gratitude {
+      .logo {
+        width: 113px;
+      }
+      &Cloud {
+        &__text {
+          max-width: 271px;
+          font-size: $text-bold-m;
+          line-height: 27px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .about {
+    .subtitle {
+      margin-bottom: 380px;
+      max-width: 100%;
+      font-weight: 700;
+      font-size: $m-text-bold-m;
+      line-height: 21px;
+    }
+    .illustration {
+      top: 80px;
+    }
+    .checks {
+      margin-bottom: 80px;
+      margin-left: 40px;
+      display: flex;
+      flex-direction: column;
+      .check {
+        &__title {
+          font-size: $m-text-m;
+        }
+        &__description {
+          font-size: $text-bold-m;
+        }
+      }
+    }
+    .gratitude {
+      flex-direction: column;
+      .logo {
+        margin-bottom: 16px;
+        margin-right: 0;
+        width: 113px;
+      }
+      &Cloud {
+        margin-top: 40px;
+        .cloudPart {
+          top: -40px;
+          left: 40%;
+          transform: translateX(-50%);
+          transform: rotate(90deg);
+        }
+        &__text {
+          max-width: 271px;
+          font-size: $text-bold-m;
+          line-height: 27px;
+        }
+      }
+    }
+  }
+}

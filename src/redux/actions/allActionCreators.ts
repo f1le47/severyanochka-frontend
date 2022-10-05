@@ -1,3 +1,4 @@
+import { jobActionCreators } from './jobActionCreators/jobActionCreators';
 import { categoriesActionCreators } from './categoriesActionCreators/categoriesActionCreators';
 import { basketActionCreators } from './basketActionCreators/basketActionCreators';
 import { authActionCreators } from "./authActionCreators/authActionCreators";
@@ -11,5 +12,6 @@ export const allActionCreators = {
   ...favoriteActionCreators,
   ...basketActionCreators,
   ...categoriesActionCreators,
-  ...ratingActionCreators
+  ...ratingActionCreators,
+  ...jobActionCreators
 }
