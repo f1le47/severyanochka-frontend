@@ -44,10 +44,14 @@ const Filter = ({setCountRange, countRange, categories, minPrice, maxPrice, hand
   }
 
   const handleClose = () => {
-    setIsOpen(false)
+    if(!checkForIsOpen) {
+      setIsOpen(false)
+    }
   }
   const handleOpen = () => {
+    if(!checkForIsOpen) {
     setIsOpen(true)
+    }
   }
 
   return (
@@ -117,7 +121,7 @@ const Filter = ({setCountRange, countRange, categories, minPrice, maxPrice, hand
         />
         <span className={s.inStock__text}>В наличии</span>
       </div>
-      <button className={s.apply}>Применить</button>
+      {/* <button className={s.apply}>Применить</button> */}
     </div>
     ) 
     :

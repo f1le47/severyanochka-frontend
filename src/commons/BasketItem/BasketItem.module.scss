@@ -8,6 +8,7 @@
   background-color: $surface;
   border-radius: 4px;
   box-shadow: $shadow-xs;
+  max-height: 72px;
   &:hover {
     box-shadow: $shadow-primary-m;
   }
@@ -147,6 +148,7 @@
   .card {
     padding-right: 4px;
     padding-left: 0;
+    max-height: 114px;
     .info {
       .name {
         margin-bottom: 10px;
@@ -161,5 +163,11 @@
         align-self: end;
       }
     }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .card {
+    max-height: 134px;
   }
 }

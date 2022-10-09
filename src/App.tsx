@@ -6,8 +6,8 @@ import Notification from "commons/Notification/Notification";
 import Main from "pages/Main/Main";
 import './App.scss'
 import Footer from "components/Footer/Footer";
-import Category from "pages/Catalog/Category/Category";
-import Product from "pages/Catalog/Category/Product/Product";
+import Category from "pages/Category/Category";
+import Product from "pages/Product/Product";
 import Loader from "commons/Loader/Loader";
 import { CircularProgress } from "@material-ui/core";
 const Favorite = lazy(() => import('pages/Favorite/Favorite'))

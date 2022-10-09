@@ -24,7 +24,7 @@ export const categoriesActionCreators = {
       dispatch(categoriesSlice.actions.setAmountProducts(response.amountProducts))
       dispatch(categoriesSlice.actions.setLoaded())
     } catch(e) {
-      dispatch(notificationSlice.actions.setError(e.response.data.message))
+      // dispatch(notificationSlice.actions.setError(e.response.data.message))
       dispatch(categoriesSlice.actions.setLoaded())
     }
   },
