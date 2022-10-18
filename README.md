@@ -41,3 +41,8 @@ To make it easier for you to start my project, I made a docker compose file, whi
 
 ## SCREENSHOTS
 ![Image alt](https://github.com/f1le47/severyanochka-frontend/raw/master/src/assets/projectScreens/1.png)
+![Image alt](https://github.com/f1le47/severyanochka-frontend/raw/master/src/assets/projectScreens/2.png)
+![Image alt](https://github.com/f1le47/severyanochka-frontend/raw/master/src/assets/projectScreens/3.png)
+![Image alt](https://github.com/f1le47/severyanochka-frontend/raw/master/src/assets/projectScreens/4.png)
+![Image alt](https://github.com/f1le47/severyanochka-frontend/raw/master/src/assets/projectScreens/5.png)
+![Image alt](https://github.com/f1le47/severyanochka-frontend/raw/master/src/assets/projectScreens/6.png)
