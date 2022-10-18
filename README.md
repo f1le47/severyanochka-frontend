@@ -38,3 +38,6 @@ For an application to work, you need a frontend, a backend, and a database.
 To make it easier for you to start my project, I made a docker compose file, which is placed in the github [repository](https://github.com/f1le47/severyanochka-docker). In the README.md file I described what needs to be done to start the project.
 
 ## [BACKEND](https://github.com/f1le47/severyanochka-backend)
+
+## SCREENSHOTS
+![Image alt](https://github.com/f1le47/severyanochka-frontend/raw/master/src/assets/projectScreens/1.png)
